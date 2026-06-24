@@ -24,7 +24,7 @@ function Home() {
     function createOfferSlideCards(data, lastIndex) {
         const cards = [];
         for(let i=lastIndex*4; i<lastIndex*4+4; i++) {
-            cards.push(<ProductCard key={`limited_pc_${i}`} data={data[i]} />);
+            cards.push(<ProductCard key={`limited_pc_${i}`} serial="home_spec" data={data[i]} />);
         };
         return cards;
     };

@@ -41,31 +41,42 @@ function ProductCard( props ) {
     function collapseLongTitle(string) {};
 
     function showOtherImages(e) {
-        const currentWidth = document.querySelector(`#productcard_${id} > .productcard__image`).getBoundingClientRect().width;
-        const currentMouseX = e.nativeEvent.layerX;
-        const verticalPercentage = Math.round((currentMouseX / currentWidth) * 100);        
-        const currentFinalIndex = imgPath.length-1;
-        const currentIndex = Math.round(currentFinalIndex * verticalPercentage / 100);
+        const imageContainer = document.querySelector(`#productcard_${props.serial}_${id} > .productcard__image`);
+        const width = imageContainer.getBoundingClientRect().width;
+        const mouseX = e.nativeEvent.layerX;
+        const verticalPercentage = Math.round((mouseX / width) * 100);        
+        const finalIndex = imgPath.length-1;
+        const activeIndex = Math.round(finalIndex * verticalPercentage / 100);
 
-        console.log(currentIndex);
+        console.log(activeIndex);
 
-        // 1. somehow need to be able to select image by currentIndex so can alter zIndex or left position
-        // 2. id should be dynamic with prop data so same product can exist in same page for different sections
-        // 3. onMouseEnter, need to button to appear for wishlist and add to cart, infos for is discounted, stock, new
+        let cards = imageContainer.children;
+        console.log(cards, cards.length);
+
+        cards.forEach((card, index) => {
+            if(index == activeIndex) {
+                card.style.zIndex = 2;
+            } else {
+                card.style.zIndex = 1;
+            };
+        });
+
+        // 1. somehow need to be able to select image by activeIndex so can alter zIndex or left position
+        // 2. onMouseEnter, need to button to appear for wishlist and add to cart, infos for is discounted, stock, new
     };
     function showFirstImage() {};
 
     return (
-        <div className="productcard" id={`productcard_${id}`}>
+        <div className="productcard" id={`productcard_${props.serial}_${id}`}>
             <div className="productcard__image" onMouseMove={(event) => showOtherImages(event)} onMouseLeave={showFirstImage}>
                 {imgPath.length > 0 && imgPath.map((url, index) => {
                     return (<img key={index} src={`/images/products/${url}`} alt={`image_${index+1}`} />);
                 })}
-                <div className="productcard__image-radios">
+                {/* <div className="productcard__image-radios">
                     {imgPath.length > 0 && imgPath.map((url, index) => {
-                    return (<div key={index}></div>);
-                })}
-                </div>
+                        return (<div key={index}></div>);
+                    })}
+                </div> */}
             </div>
             {discount > 0 ? (
                 <div className="productcard__price">
