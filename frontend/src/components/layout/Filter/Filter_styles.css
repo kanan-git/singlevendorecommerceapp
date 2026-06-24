@@ -1,0 +1,9 @@
+.filter {
+    background-color: darkseagreen;
+}
+
+@media only screen and (max-width: var(--width-laptop)) {}
+
+@media only screen and (max-width: var(--width-tablet)) {}
+
+@media only screen and (max-width: var(--width-mobile)) {}

@@ -1,0 +1,44 @@
+:root {
+    /* COLOR PATTERN */
+    --color-text-default: #000000;
+    --color-bg-default: #ffffff;
+    --color-theme-light: #e95349;
+    --color-theme: #d62418;
+    --color-theme-dark: #971007;
+    --color-content-light: #4b4b4b;
+    --color-content: #353535;
+    --color-content-dark: #1d1d1d;
+    --color-background-light: #f0f0f0;
+    --color-background: #d6d6d6;
+    --color-background-dark: #cccccc;
+
+    /* MARGIN PRESETS */
+    --margin-center: 0 auto;
+
+    /* PADDING PRESETS */
+    --padding-btn: var(--size-esm) var(--size-esm);
+    --padding-container: var(--size-m);
+
+    /* TRANSITION PRESETS */
+    --transition-fast: 0.15s linear;
+    --transition-medium: 0.3s ease-in-out;
+
+    /* SIZE VALUES */
+    --size-esm: 0.25rem;
+    --size-sm: 0.5rem;
+    --size-m: 1rem;
+    --size-lg: 2rem;
+    --size-elg: 4rem;
+
+    /* RESPONSIVE SCREENS */
+    --width-desktop: 1920px;
+    --width-laptop: 1200px;
+    --width-tablet: 900px;
+    --width-mobile: 450px;
+    --main-width: min(1920px, 100%);
+
+    /* FONT SETTINGS */
+    --fontfamily-default: Arial, Helvetica, sans-serif;
+    --fontsize-default: 1rem;
+    --fontweight-default: 500;
+}
