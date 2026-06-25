@@ -80,7 +80,7 @@ const bootstrapIcons = {
         award: "bi bi-award",
         advertisement: "bi bi-badge-ad",
         contactEmail: "bi bi-envelope",
-        contactAddress: "bi bi-pin=map",
+        contactAddress: "bi bi-pin-map",
         contactPhone: "bi bi-telephone",
         socialYouTube: "bi bi-youtube",
         socialInstagram: "bi bi-instagram",

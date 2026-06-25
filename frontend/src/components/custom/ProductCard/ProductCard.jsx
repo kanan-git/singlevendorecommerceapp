@@ -1,10 +1,13 @@
-import { useEffect } from "react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import icons from "../../../assets/utils/constants/bootstrapIcons.js";
 import "./ProductCard_features.js";
 import "./ProductCard_styles.css";
 
 function ProductCard( props ) {
-    const {id, title, imgPath, price, discount, ratingCount, ratingPoint} = props.data;
+    const {id, title, imgPath, price, discount, ratingCount, ratingPoint, stock} = props.data;
+
+    const [imgIndex, setImgIndex] = useState(0);
 
     function setStars(point, cardid) {
         const stars = [];
@@ -38,45 +41,79 @@ function ProductCard( props ) {
         return count;
     };
 
-    function collapseLongTitle(string) {};
+    function collapseLongTitle(string="") {
+        if(string.length > 16) {
+            return string.slice(0, 16) + "...";
+        };
+        return string;
+    };
 
     function showOtherImages(e) {
+        // use caching here
         const imageContainer = document.querySelector(`#productcard_${props.serial}_${id} > .productcard__image`);
         const width = imageContainer.getBoundingClientRect().width;
         const mouseX = e.nativeEvent.layerX;
         const verticalPercentage = Math.round((mouseX / width) * 100);        
         const finalIndex = imgPath.length-1;
         const activeIndex = Math.round(finalIndex * verticalPercentage / 100);
+        setImgIndex(activeIndex);
 
-        console.log(activeIndex);
-
-        let cards = imageContainer.children;
-        console.log(cards, cards.length);
-
-        cards.forEach((card, index) => {
-            if(index == activeIndex) {
-                card.style.zIndex = 2;
+        // let cards = imageContainer.children;
+        const cards = document.querySelectorAll(`#productcard_${props.serial}_${id} > .productcard__image > .productcard__image-content`);
+        const radios = document.querySelectorAll(`#productcard_${props.serial}_${id} .productcard__image-radios > div`);
+        for(let i=0; i<cards.length; i++) {
+            if(i == activeIndex) {
+                cards[i].style.zIndex = `2`;
+                radios[i].style.backgroundColor = `cornsilk`;
             } else {
-                card.style.zIndex = 1;
+                cards[i].style.zIndex = `1`;
+                radios[i].style.backgroundColor = `aqua`;
             };
-        });
-
-        // 1. somehow need to be able to select image by activeIndex so can alter zIndex or left position
-        // 2. onMouseEnter, need to button to appear for wishlist and add to cart, infos for is discounted, stock, new
+        };
     };
-    function showFirstImage() {};
+
+    function showFirstImage() {
+        setImgIndex(0);
+        const cards = document.querySelectorAll(`#productcard_${props.serial}_${id} > .productcard__image > .productcard__image-content`);
+        const radios = document.querySelectorAll(`#productcard_${props.serial}_${id} .productcard__image-radios > div`);
+        for(let i=0; i<cards.length; i++) {
+            if(i == 0) {
+                cards[i].style.zIndex = `2`;
+                radios[i].style.backgroundColor = `cornsilk`;
+            } else {
+                cards[i].style.zIndex = `1`;
+                radios[i].style.backgroundColor = `aqua`;
+            };
+        };
+    };
 
     return (
-        <div className="productcard" id={`productcard_${props.serial}_${id}`}>
-            <div className="productcard__image" onMouseMove={(event) => showOtherImages(event)} onMouseLeave={showFirstImage}>
+        <Link to={"/explore?product="+id} className="productcard" id={`productcard_${props.serial}_${id}`} onMouseEnter={() => {
+            // 
+        }} onMouseLeave={() => {
+            // 
+        }}>
+            <div className="productcard__image" onMouseMove={(event) => showOtherImages(event)} onMouseLeave={() => {
+                showFirstImage();
+                document.querySelector(`#productcard_${props.serial}_${id} .productcard__image-radios`).style.display = `none`;
+            }} onMouseEnter={() => {
+                document.querySelector(`#productcard_${props.serial}_${id} .productcard__image-radios`).style.display = `flex`;
+            }}>
                 {imgPath.length > 0 && imgPath.map((url, index) => {
-                    return (<img key={index} src={`/images/products/${url}`} alt={`image_${index+1}`} />);
+                    return (<img key={index} className="productcard__image-content" src={`/images/products/${url}`} alt={`image_${index+1}`} style={index==0 ? {zIndex:"2"} : {zIndex:"1"}} />);
                 })}
-                {/* <div className="productcard__image-radios">
+                <div className="productcard__image-radios">
                     {imgPath.length > 0 && imgPath.map((url, index) => {
-                        return (<div key={index}></div>);
+                        return (<div key={index} style={index==0 ? {backgroundColor:"cornsilk"} : {backgroundColor:"aqua"}}></div>);
                     })}
-                </div> */}
+                </div>
+                <div className="productcard__image-info">
+                    <span className="productcard__image-group">
+                        {discount>0 && <span className="productcard__image-discount">-{discount}%</span>}
+                        <span className="productcard__image-stock" style={stock!=0 ? {border:"1px solid #00ff00", color:"#00ff00"} : {border:"1px solid #ff0000", color:"#ff0000"}}>{stock==0 ? "Out of Stock" : "In Stock"}</span>
+                    </span>
+                    <span className="productcard__image-imgnav">{imgIndex+1}/{imgPath.length}</span>
+                </div>
             </div>
             {discount > 0 ? (
                 <div className="productcard__price">
@@ -94,7 +131,21 @@ function ProductCard( props ) {
                 <span className="productcard__rating-stars">{setStars(ratingPoint, id)}</span>
                 <span className="productcard__rating-reviews">({optimizeCount(ratingCount)})</span>
             </div>
-        </div>
+
+            
+            <div className="productcard__rating-buttons" onClick={(e) => {
+                e.preventDefault();
+            }}>
+                <button>
+                    <i className={icons.product.wishlistAdd}></i>
+                    <span>Add to Wishlist</span>
+                </button>
+                <button disabled={stock>0 ? false : true}>
+                    <i className={icons.pages.core.Cart}></i>
+                    <span>Add to Cart</span>
+                </button>
+            </div>
+        </Link>
     );
 };
 

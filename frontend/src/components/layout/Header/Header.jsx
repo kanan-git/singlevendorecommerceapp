@@ -1,109 +1,73 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import icons from "../../../assets/utils/constants/bootstrapIcons.js";
+import Logo from "../../../assets/images/logo/logo.png";
+import roles from "../../../assets/utils/tempFakeDatabase/roles.js";
 import "./Header_features.js";
 import "./Header_styles.css";
 
 function Header() {
+    const [token, setToken] = useState({role: roles.guest});
+
     return (
         <header className="header">
-1. Logo / Brand
+            <section className="header__container">
+                {/* <button>
+                </button> */}
 
-Primary identity section.
+                <Link to="/" className="header__container--logo">
+                    <img src={Logo} alt="logo" className="header__logo-content" />
+                </Link>
 
-Contains:
+                <nav className="header__container--navbar">
+                    <li>
+                        <i className={icons.pages.core.Home}></i>
+                        <Link to="/">Home</Link>
+                    </li>
+                    <li>
+                        <i className={icons.pages.core.Explore}></i>
+                        <Link to="/explore">Products</Link>
+                    </li>
+                    <li>
+                        <i className={icons.pages.info.About}></i>
+                        <Link to="/about">About</Link>
+                    </li>
+                    <li>
+                        <i className={icons.pages.info.Contact}></i>
+                        <Link to="/contact">Contact</Link>
+                    </li>
+                    {token.role==roles.user && <li>
+                        <i className={icons.pages.user.Profile}></i>
+                        <Link to="/user/profile">Profile</Link>
+                    </li>}
+                    {token.role==roles.admin && (<>
+                        <li>
+                            <i className={icons.pages.admin.Dashboard}></i>
+                            <Link to="/admin/dashboard">Dashboard</Link>
+                        </li>
+                        <li>
+                            <i className={icons.pages.admin.Products}></i>
+                            <Link to="/admin/products">Products</Link>
+                        </li>
+                        <li>
+                            <i className={icons.pages.admin.Brands}></i>
+                            <Link to="/admin/brands">Brands</Link>
+                        </li>
+                        <li>
+                            <i className={icons.pages.admin.Categories}></i>
+                            <Link to="/admin/categories">Categories</Link>
+                        </li>
+                        <li>
+                            <i className={icons.pages.admin.UserOrders}></i>
+                            <Link to="/admin/orders">Orders</Link>
+                        </li>
+                    </>)}
+                </nav>
 
-Store logo
-Store name
-
-Purpose:
-
-Brand recognition
-Quick navigation to Home page
-2. Navigation Menu
-
-Main navigation section.
-
-Contains:
-
-Home
-Explore
-About
-Contact
-
-Provides access to the site's primary pages.
-
-3. Search
-
-Quick product discovery section.
-
-Contains:
-
-Search input
-Search icon/button
-
-Allows users to find products from anywhere.
-
-4. Wishlist Access
-
-User utility section.
-
-Contains:
-
-Wishlist icon
-Saved items count (optional)
-
-Provides quick access to saved products.
-
-5. Cart Access
-
-Shopping section.
-
-Contains:
-
-Cart icon
-Cart item count
-Optional cart total
-
-One of the most frequently used header elements.
-
-6. Authentication Area
-
-Account section.
-
-When guest:
-
-Login
-Register
-
-When authenticated:
-
-User avatar/name
-Account menu
-Logout
-
-Provides account-related actions.
-
-7. Mobile Navigation
-
-Responsive section.
-
-Contains:
-
-Hamburger menu
-Mobile navigation drawer
-
-Required for smaller screens.
-
-8. Announcement Bar (Optional)
-
-Topmost information section.
-
-Examples:
-
-Free shipping offers
-Seasonal discounts
-Store announcements
-
-Useful but not required.
+                <div className="header__container--cta">
+                    {/*  */}
+                </div>
+            </section>
         </header>
     );
 };

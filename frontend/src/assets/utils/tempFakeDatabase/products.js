@@ -5,6 +5,8 @@ const products = [
         description: "Noise cancelling over-ear headphones with deep bass.",
         category: "electronics",
 
+        stock: 900,
+
         imgPath: ["headphones1.jpg", "headphones2.jpg", "headphones3.jpg"],
 
         price: 120,
@@ -24,6 +26,8 @@ const products = [
         description: "RGB high precision gaming mouse.",
         category: "electronics",
 
+        stock: 1500,
+
         imgPath: ["mouse1.jpg", "mouse2.jpg"],
 
         price: 45,
@@ -41,6 +45,8 @@ const products = [
         title: "Mechanical Keyboard",
         description: "Blue switch mechanical keyboard with LED backlight.",
         category: "electronics",
+
+        stock: 50,
 
         imgPath: ["keyboard1.jpg", "keyboard2.jpg", "keyboard3.jpg"],
 
@@ -61,6 +67,8 @@ const products = [
         description: "Fitness tracking smartwatch with heart monitor.",
         category: "electronics",
 
+        stock: 0,
+
         imgPath: ["watch1.jpg", "watch2.jpg", "watch3.jpg"],
 
         price: 99,
@@ -78,6 +86,8 @@ const products = [
         title: "Bluetooth Speaker",
         description: "Portable waterproof speaker with deep sound.",
         category: "electronics",
+
+        stock: 900,
 
         imgPath: ["speaker1.jpg", "speaker2.jpg"],
 
@@ -98,13 +108,15 @@ const products = [
         description: "Lightweight breathable running shoes.",
         category: "fashion",
 
-        imgPath: ["shoes1.jpg", "shoes2.jpg", "shoes3.jpg"],
+        stock: 900,
+
+        imgPath: ["shoes1.jpg", "shoes2.jpg", "shoes3.jpg", "shoes4.jpg", "shoes5.jpg", "shoes6.jpg", "shoes7.jpg", "shoes8.jpg", "shoes9.jpg", "shoes10.jpg", "shoes11.jpg", "shoes12.jpg", "shoes13.jpg", "shoes14.jpg", "shoes15.jpg", "shoes16.jpg", "shoes17.jpg", "shoes18.jpg", "shoes19.jpg", "shoes20.jpg", "shoes21.jpg", "shoes22.jpg", "shoes23.jpg", "shoes24.jpg"],
 
         price: 70,
-        discount: 18,
+        discount: 0,
 
         ratingCount: 4907990523,
-        ratingPoint: 4.9,
+        ratingPoint: 2.0,
 
         comments: [
             { userId: 8, content: "Very comfortable for running", likes: 80, dislikes: 1, givenRating: 5 }
@@ -115,6 +127,8 @@ const products = [
         title: "Backpack",
         description: "Water-resistant travel backpack with laptop compartment.",
         category: "fashion",
+
+        stock: 900,
 
         imgPath: ["backpack1.jpg", "backpack2.jpg", "backpack3.jpg"],
 
@@ -134,6 +148,8 @@ const products = [
         description: "UV protection stylish sunglasses.",
         category: "fashion",
 
+        stock: 900,
+
         imgPath: ["sunglasses1.jpg"],
 
         price: 35,
@@ -151,6 +167,8 @@ const products = [
         title: "Smartphone",
         description: "Latest generation smartphone with AMOLED display.",
         category: "electronics",
+
+        stock: 900,
 
         imgPath: ["phone1.jpg", "phone2.jpg", "phone3.jpg"],
 
@@ -171,6 +189,8 @@ const products = [
         description: "High performance laptop for work and gaming.",
         category: "electronics",
 
+        stock: 900,
+
         imgPath: ["laptop1.jpg", "laptop2.jpg", "laptop3.jpg"],
 
         price: 1200,
@@ -188,6 +208,8 @@ const products = [
         title: "Office Chair",
         description: "Ergonomic adjustable office chair with lumbar support.",
         category: "furniture",
+
+        stock: 900,
 
         imgPath: ["chair1.jpg", "chair2.jpg", "chair3.jpg"],
 
@@ -207,6 +229,8 @@ const products = [
         description: "LED desk lamp with adjustable brightness and color modes.",
         category: "furniture",
 
+        stock: 900,
+
         imgPath: ["lamp1.jpg"],
 
         price: 25,
@@ -224,6 +248,8 @@ const products = [
         title: "Coffee Maker",
         description: "Automatic drip coffee machine for home use.",
         category: "home",
+
+        stock: 900,
 
         imgPath: ["coffee1.jpg", "coffee2.jpg", "coffee3.jpg"],
 
@@ -243,6 +269,8 @@ const products = [
         description: "Insulated stainless steel water bottle.",
         category: "home",
 
+        stock: 900,
+
         imgPath: ["bottle1.jpg", "bottle2.jpg"],
 
         price: 20,
@@ -260,6 +288,8 @@ const products = [
         title: "Dumbbells Set",
         description: "Adjustable dumbbells for home workout.",
         category: "fitness",
+
+        stock: 900,
 
         imgPath: ["dumbbells1.jpg", "dumbbells2.jpg", "dumbbells3.jpg"],
 
@@ -279,6 +309,8 @@ const products = [
         description: "Non-slip yoga mat for exercise and stretching.",
         category: "fitness",
 
+        stock: 900,
+
         imgPath: ["yoga1.jpg", "yoga2.jpg", "yoga3.jpg"],
 
         price: 30,
@@ -296,6 +328,8 @@ const products = [
         title: "Tablet",
         description: "10-inch tablet for entertainment and work.",
         category: "electronics",
+
+        stock: 900,
 
         imgPath: ["tablet1.jpg", "tablet2.jpg", "tablet3.jpg"],
 
@@ -315,6 +349,8 @@ const products = [
         description: "24-inch Full HD monitor for office and gaming.",
         category: "electronics",
 
+        stock: 900,
+
         imgPath: ["monitor1.jpg", "monitor2.jpg"],
 
         price: 180,
@@ -332,6 +368,8 @@ const products = [
         title: "Microwave Oven",
         description: "Compact microwave oven for quick heating.",
         category: "home",
+
+        stock: 900,
 
         imgPath: ["microwave1.jpg", "microwave2.jpg", "microwave3.jpg"],
 
@@ -351,6 +389,8 @@ const products = [
         description: "High-speed kitchen blender for smoothies.",
         category: "home",
 
+        stock: 900,
+
         imgPath: ["blender1.jpg", "blender2.jpg"],
 
         price: 65,
@@ -369,6 +409,8 @@ const products = [
         description: "RGB cooling pad for laptops with adjustable fan speed.",
         category: "electronics",
 
+        stock: 900,
+
         imgPath: ["coolingpad1.jpg", "coolingpad2.jpg", "coolingpad3.jpg"],
 
         price: 35,
@@ -386,6 +428,8 @@ const products = [
         title: "Wireless Earbuds",
         description: "Compact earbuds with noise isolation and charging case.",
         category: "electronics",
+
+        stock: 900,
 
         imgPath: ["earbuds1.jpg", "earbuds2.jpg"],
 
@@ -406,6 +450,8 @@ const products = [
         description: "Color changing smart bulb with app control.",
         category: "home",
 
+        stock: 900,
+
         imgPath: ["bulb1.jpg", "bulb2.jpg", "bulb3.jpg"],
 
         price: 18,
@@ -423,6 +469,8 @@ const products = [
         title: "Air Fryer",
         description: "Oil-free air fryer for healthy cooking.",
         category: "home",
+
+        stock: 900,
 
         imgPath: ["airfryer1.jpg", "airfryer2.jpg", "airfryer3.jpg"],
 
@@ -442,6 +490,8 @@ const products = [
         description: "Fast boiling stainless steel electric kettle.",
         category: "home",
 
+        stock: 900,
+
         imgPath: ["kettle1.jpg", "kettle2.jpg"],
 
         price: 40,
@@ -459,6 +509,8 @@ const products = [
         title: "Fitness Smart Band",
         description: "Lightweight fitness tracker with step counter.",
         category: "electronics",
+
+        stock: 900,
 
         imgPath: ["band1.jpg", "band2.jpg", "band3.jpg"],
 
@@ -478,6 +530,8 @@ const products = [
         description: "Multi-compartment desk storage organizer.",
         category: "furniture",
 
+        stock: 900,
+
         imgPath: ["organizer1.jpg", "organizer2.jpg"],
 
         price: 22,
@@ -495,6 +549,8 @@ const products = [
         title: "Portable Hard Drive",
         description: "1TB external storage drive USB 3.0.",
         category: "electronics",
+
+        stock: 900,
 
         imgPath: ["hdd1.jpg", "hdd2.jpg", "hdd3.jpg"],
 
@@ -514,6 +570,8 @@ const products = [
         description: "Ergonomic gaming chair with adjustable height.",
         category: "furniture",
 
+        stock: 900,
+
         imgPath: ["gamingchair1.jpg", "gamingchair2.jpg", "gamingchair3.jpg"],
 
         price: 180,
@@ -531,6 +589,8 @@ const products = [
         title: "Smart Door Lock",
         description: "Fingerprint smart lock with mobile app control.",
         category: "home",
+
+        stock: 900,
 
         imgPath: ["lock1.jpg", "lock2.jpg", "lock3.jpg"],
 
@@ -550,6 +610,8 @@ const products = [
         description: "4K Ultra HD smart television with streaming apps.",
         category: "electronics",
 
+        stock: 900,
+
         imgPath: ["tv1.jpg", "tv2.jpg", "tv3.jpg"],
 
         price: 450,
@@ -567,6 +629,8 @@ const products = [
         title: "Router",
         description: "High-speed WiFi router with dual band support.",
         category: "electronics",
+
+        stock: 900,
 
         imgPath: ["router1.jpg", "router2.jpg"],
 
@@ -586,6 +650,8 @@ const products = [
         description: "Fast drying ionic hair dryer.",
         category: "home",
 
+        stock: 900,
+
         imgPath: ["dryer1.jpg", "dryer2.jpg", "dryer3.jpg"],
 
         price: 40,
@@ -603,6 +669,8 @@ const products = [
         title: "Electric Toothbrush",
         description: "Rechargeable sonic electric toothbrush.",
         category: "home",
+
+        stock: 900,
 
         imgPath: ["brush1.jpg", "brush2.jpg"],
 
@@ -622,6 +690,8 @@ const products = [
         description: "Professional DSLR camera for photography.",
         category: "electronics",
 
+        stock: 900,
+
         imgPath: ["camera1.jpg", "camera2.jpg", "camera3.jpg"],
 
         price: 800,
@@ -639,6 +709,8 @@ const products = [
         title: "Tripod Stand",
         description: "Adjustable tripod for cameras and phones.",
         category: "electronics",
+
+        stock: 900,
 
         imgPath: ["tripod1.jpg", "tripod2.jpg"],
 
@@ -658,6 +730,8 @@ const products = [
         description: "Water-resistant padded laptop carrying bag.",
         category: "fashion",
 
+        stock: 900,
+
         imgPath: ["laptopbag1.jpg", "laptopbag2.jpg", "laptopbag3.jpg"],
 
         price: 40,
@@ -675,6 +749,8 @@ const products = [
         title: "Perfume",
         description: "Long-lasting premium fragrance.",
         category: "fashion",
+
+        stock: 900,
 
         imgPath: ["perfume1.jpg", "perfume2.jpg"],
 
@@ -694,6 +770,8 @@ const products = [
         description: "Casual comfortable everyday sneakers.",
         category: "fashion",
 
+        stock: 900,
+
         imgPath: ["sneakers1.jpg", "sneakers2.jpg", "sneakers3.jpg"],
 
         price: 75,
@@ -711,6 +789,8 @@ const products = [
         title: "Gym Bag",
         description: "Large capacity sports and gym bag.",
         category: "fitness",
+
+        stock: 900,
 
         imgPath: ["gymbag1.jpg", "gymbag2.jpg"],
 
@@ -730,6 +810,8 @@ const products = [
         description: "Home electric treadmill for cardio workouts.",
         category: "fitness",
 
+        stock: 900,
+
         imgPath: ["treadmill1.jpg", "treadmill2.jpg", "treadmill3.jpg"],
 
         price: 500,
@@ -747,6 +829,8 @@ const products = [
         title: "Bookshelf",
         description: "Wooden multi-layer bookshelf.",
         category: "furniture",
+
+        stock: 900,
 
         imgPath: ["bookshelf1.jpg", "bookshelf2.jpg", "bookshelf3.jpg"],
 
@@ -766,6 +850,8 @@ const products = [
         description: "Modern silent wall clock.",
         category: "home",
 
+        stock: 900,
+
         imgPath: ["clock1.jpg", "clock2.jpg"],
 
         price: 18,
@@ -783,6 +869,8 @@ const products = [
         title: "VR Headset",
         description: "Virtual reality headset for immersive gaming.",
         category: "electronics",
+
+        stock: 900,
 
         imgPath: ["vr1.jpg", "vr2.jpg", "vr3.jpg"],
 
@@ -802,6 +890,8 @@ const products = [
         description: "Fast charging portable power bank.",
         category: "electronics",
 
+        stock: 900,
+
         imgPath: ["powerbank1.jpg", "powerbank2.jpg"],
 
         price: 45,
@@ -819,6 +909,8 @@ const products = [
         title: "Rice Cooker",
         description: "Automatic electric rice cooker.",
         category: "home",
+
+        stock: 900,
 
         imgPath: ["ricecooker1.jpg", "ricecooker2.jpg", "ricecooker3.jpg"],
 
@@ -838,6 +930,8 @@ const products = [
         description: "Energy efficient split AC unit.",
         category: "home",
 
+        stock: 900,
+
         imgPath: ["ac1.jpg", "ac2.jpg", "ac3.jpg"],
 
         price: 600,
@@ -855,6 +949,8 @@ const products = [
         title: "Projector",
         description: "HD home theater projector.",
         category: "electronics",
+
+        stock: 900,
 
         imgPath: ["projector1.jpg", "projector2.jpg"],
 
@@ -874,6 +970,8 @@ const products = [
         description: "Muscle recovery percussion massage gun.",
         category: "fitness",
 
+        stock: 900,
+
         imgPath: ["massage1.jpg", "massage2.jpg", "massage3.jpg"],
 
         price: 85,
@@ -891,6 +989,8 @@ const products = [
         title: "Smart Mirror",
         description: "LED smart mirror with touch controls.",
         category: "home",
+
+        stock: 900,
 
         imgPath: ["mirror1.jpg", "mirror2.jpg", "mirror3.jpg"],
 
