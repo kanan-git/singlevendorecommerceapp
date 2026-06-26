@@ -2,6 +2,64 @@
     background-color: azure;
 }
 
+.header__container {
+    display: flex;
+}
+
+.header__container--logo {}
+
+.header__container--logo > img {}
+
+.header__container--navbar {}
+
+.header__container--navbar > form {}
+
+.header__container--navbar > form > input {}
+
+.header__container--navbar > form > button {}
+
+.header__container--navbar > form > button > i {}
+
+.header__container--navbar > ul {
+    display: flex;
+}
+
+.header__container--navbar > ul > li {}
+
+.header__container--navbar > ul > li > i {}
+
+.header__container--navbar > ul > li > a {}
+
+.header__container--cta {
+    display: flex;
+}
+
+.header__container--cta > div {}
+
+.header__container--cta > div > button {}
+
+.header__container--cta > div > button > i {}
+
+.header__container--cta > div > button > div {}
+
+.header__container--cta > button {}
+
+.header__container--cta > button > span {}
+
+.header__container--cta > span {}
+
+.header__container--cta > span > span {}
+
+.header__container--cta > span > span > img {}
+
+.header__container--cta > span > i {}
+
+.header__container--cta > span > ul {}
+
+.header__container--cta > span > ul > li {}
+
+.header__container--cta > span > ul > li > a, span {}
+
 @media only screen and (max-width: var(--width-laptop)) {}
 
 @media only screen and (max-width: var(--width-tablet)) {}

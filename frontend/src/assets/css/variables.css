@@ -1,17 +1,64 @@
+/* COLOR PATTERN */
 :root {
-    /* COLOR PATTERN */
-    --color-text-default: #000000;
-    --color-bg-default: #ffffff;
-    --color-theme-light: #e95349;
-    --color-theme: #d62418;
-    --color-theme-dark: #971007;
-    --color-content-light: #4b4b4b;
-    --color-content: #353535;
-    --color-content-dark: #1d1d1d;
-    --color-background-light: #f0f0f0;
-    --color-background: #d6d6d6;
-    --color-background-dark: #cccccc;
+    --color-text-primary: #1f2937;
+    --color-text-secondary: #4b5563;
+    --color-text-muted: #6b7280;
+    --color-text-disabled: #9ca3af;
+    --color-text-inverse: #ffffff;
+    --color-text-link: #d62418;
 
+    --color-surface-page: #f8fafc;
+    --color-surface-section: #f1f5f9;
+    --color-surface-card: #ffffff;
+    --color-surface-elevated: #ffffff;
+    --color-surface-input: #ffffff;
+    --color-surface-overlay: rgba(0,0,0,.55);
+    --color-surface-inverse: #111827;
+
+    --color-border-default: #d1d5db;
+    --color-border-muted: #e5e7eb;
+    --color-border-strong: #9ca3af;
+    --color-border-focus: #d62418;
+
+    --color-primary: #d62418;
+    --color-primary-hover: #b91c12;
+    --color-primary-active: #971007;
+    --color-primary-disabled: #f3a6a1;
+    --color-on-primary: #ffffff;
+
+    --color-success: #16a34a;
+    --color-success-hover: #15803d;
+    --color-on-success: #ffffff;
+
+    --color-warning: #d97706;
+    --color-warning-hover: #b45309;
+    --color-on-warning: #ffffff;
+
+    --color-danger: #dc2626;
+    --color-danger-hover: #b91c1c;
+    --color-on-danger: #ffffff;
+
+    --color-info: #2563eb;
+    --color-info-hover: #1d4ed8;
+    --color-on-info: #ffffff;
+
+    --color-price: #111827;
+    --color-old-price: #9ca3af;
+    --color-sale: #dc2626;
+    --color-rating: #f59e0b;
+
+    --color-stock-in: #16a34a;
+    --color-stock-low: #d97706;
+    --color-stock-out: #dc2626;
+
+    --color-focus-ring: #2563eb;
+    --color-selection: #bfdbfe;
+    --color-placeholder: #9ca3af;
+    --color-divider: #e5e7eb;
+    --color-skeleton: #e5e7eb;
+}
+
+:root {
     /* MARGIN PRESETS */
     --margin-center: 0 auto;
 

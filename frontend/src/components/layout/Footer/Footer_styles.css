@@ -2,6 +2,48 @@
     background-color: antiquewhite;
 }
 
+.footer__main {
+    display: flex;
+}
+
+.footer__main--column {}
+
+.footer__main--column > h3 {}
+
+.footer__main--column > ul {}
+
+.footer__main--column > ul > li {}
+
+.footer__main--column > ul > li > i {}
+
+.footer__main--column > ul > li > span {}
+
+.footer__main--column > form {}
+
+.footer__main--column > form > input {}
+
+.footer__main--column > form > button {}
+
+.footer__main--column > ul > li > a {}
+
+.footer__main--column > div:first-of-type {}
+
+.footer__main--column > div:first-of-type > img {}
+
+.footer__main--column > p {}
+
+.footer__main--column > div:last-of-type {}
+
+.footer__main--column > div:last-of-type > a {}
+
+.footer__main--column > div:last-of-type > a > i {}
+
+.footer__bottom {}
+
+.footer__bottom > span {}
+
+.footer__bottom > span > button {}
+
 @media only screen and (max-width: var(--width-laptop)) {}
 
 @media only screen and (max-width: var(--width-tablet)) {}

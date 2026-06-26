@@ -88,7 +88,7 @@ function ProductCard( props ) {
     };
 
     return (
-        <Link to={"/explore?product="+id} className="productcard" id={`productcard_${props.serial}_${id}`} onMouseEnter={() => {
+        <Link to={"/details?id="+id} className="productcard" id={`productcard_${props.serial}_${id}`} onMouseEnter={() => {
             // 
         }} onMouseLeave={() => {
             // 

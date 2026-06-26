@@ -38,7 +38,7 @@ function Footer() {
                         </li>
                     </ul>
                     <form onSubmit={() => {}}>
-                        <input type="text" value={subEmail} onChange={(e) => setSubEmail(e)} />
+                        <input type="text" value={subEmail} onChange={(e) => setSubEmail(e.target.value)} />
                         <button onClick={() => {}}>Subscribe</button>
                     </form>
                 </div>
@@ -82,22 +82,22 @@ function Footer() {
                         <h3>Guest</h3>
                         <ul>
                             <li>
-                                <Link to="/">
+                                <Link to="/wishlist">
                                     Wishlist
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/">
+                                <Link to="/cart">
                                     Cart
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/">
+                                <Link to="/about">
                                     About
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/">
+                                <Link to="/contact">
                                     Contact
                                 </Link>
                             </li>
@@ -107,32 +107,32 @@ function Footer() {
                         <h3>You</h3>
                         <ul>
                             <li>
-                                <Link to="/">
+                                <Link to="/wishlist">
                                     Wishlist
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/">
+                                <Link to="/cart">
                                     Cart
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/">
+                                <Link to="/about">
                                     About
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/">
+                                <Link to="/contact">
                                     Contact
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/">
+                                <Link to="/user/orders">
                                     Orders
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/">
+                                <Link to="/user/profile">
                                     Profile
                                 </Link>
                             </li>
@@ -142,27 +142,27 @@ function Footer() {
                         <h3>Admin</h3>
                         <ul>
                             <li>
-                                <Link to="/">
+                                <Link to="/admin/dashboard">
                                     Dashboard
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/">
+                                <Link to="/admin/products">
                                     Products
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/">
+                                <Link to="/admin/brands">
                                     Brands
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/">
+                                <Link to="/admin/categories">
                                     Categories
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/">
+                                <Link to="/admin/orders">
                                     Orders
                                 </Link>
                             </li>
@@ -197,8 +197,8 @@ function Footer() {
                     Copyrights 2026 © All Rights Reserved.
                 </span>
                 <span>
-                    <Link to="/">Terms</Link>
-                    <Link to="/">Privacy</Link>
+                    <button>Terms</button>
+                    <button>Privacy</button>
                 </span>
             </section>
         </footer>

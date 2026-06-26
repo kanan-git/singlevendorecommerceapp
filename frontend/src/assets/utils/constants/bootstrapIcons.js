@@ -91,6 +91,8 @@ const bootstrapIcons = {
         statistics: "bi bi-graph-up-arrow",
         notifications: "bi bi-bell",
         settings: "bi bi-gear",
+        hasDropdown: "bi bi-chevron-down",
+        search: "bi bi-search",
     },
 };
 

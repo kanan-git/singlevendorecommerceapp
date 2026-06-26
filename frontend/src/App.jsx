@@ -35,39 +35,39 @@ function App() {
 
 			<Routes>
 				{/* ADMIN ROUTES */}
-				{/* <Route path="/admin/brands" element={<Brands />} /> */}
-				{/* <Route path="/admin/categories" element={<Categories />} /> */}
-				{/* <Route path="/admin/dashboard" element={<Dashboard />} /> */}
-				{/* <Route path="/admin/products/create" element={<ProductCreate />} /> */}
-				{/* <Route path="/admin/products/edit" element={<ProductEdit />} /> */}
-				{/* <Route path="/admin/products" element={<Products />} /> */}
-				{/* <Route path="/admin/orders" element={<UserOrders />} /> */}
+				<Route path="/admin/brands" element={<Brands />} />
+				<Route path="/admin/categories" element={<Categories />} />
+				<Route path="/admin/dashboard" element={<Dashboard />} />
+				<Route path="/admin/products/create" element={<ProductCreate />} />
+				<Route path="/admin/products/edit" element={<ProductEdit />} />
+				<Route path="/admin/products" element={<Products />} />
+				<Route path="/admin/orders" element={<UserOrders />} />
 				
 				{/* AUTH ROUTES */}
-				{/* <Route path="/auth/login" element={<Login />} /> */}
-				{/* <Route path="/auth/recovery" element={<Recovery />} /> */}
-				{/* <Route path="/auth/register" element={<Register />} /> */}
+				<Route path="/auth/login" element={<Login />} />
+				<Route path="/auth/recovery" element={<Recovery />} />
+				<Route path="/auth/register" element={<Register />} />
 
 				{/* USER ROUTES */}
-				{/* <Route path="/user/orderdetails" element={<OrderDetails />} /> */}
-				{/* <Route path="/user/orders" element={<Orders />} /> */}
-				{/* <Route path="/user/profile" element={<Profile />} /> */}
+				<Route path="/user/orderdetails" element={<OrderDetails />} />
+				<Route path="/user/orders" element={<Orders />} />
+				<Route path="/user/profile" element={<Profile />} />
 
 				{/* INFO ROUTES */}
-				{/* <Route path="/about" element={<About />} /> */}
-				{/* <Route path="/contact" element={<Contact />} /> */}
-				{/* <Route path="/error" element={<Error />} /> */}
+				<Route path="/about" element={<About />} />
+				<Route path="/contact" element={<Contact />} />
+				<Route path="/error" element={<Error />} />
 				
 				{/* CORE ROUTES */}
-				{/* <Route path="/cart" element={<Cart />} /> */}
-				{/* <Route path="/checkout" element={<Checkout />} /> */}
-				{/* <Route path="/details" element={<Details />} /> */}
-				{/* <Route path="/explore" element={<Explore />} /> */}
-				{/* <Route path="/wishlist" element={<Wishlist />} /> */}
-				{/* <Route path="/" element={<Home />} /> */}
+				<Route path="/cart" element={<Cart />} />
+				<Route path="/checkout" element={<Checkout />} />
+				<Route path="/details" element={<Details />} />
+				<Route path="/explore" element={<Explore />} />
+				<Route path="/wishlist" element={<Wishlist />} />
+				<Route path="/" element={<Home />} />
 
 				{/* REDIRECTIONS */}
-				{/* <Route path="*" element={<Navigate to={"/error?code=404"} />} /> */}
+				<Route path="*" element={<Navigate to={"/error?code=404"} />} />
 			</Routes>
 
 			<Footer />
