@@ -1,5 +1,6 @@
 .home {
     width: var(--main-width);
+    background-color: var(--color-surface-page);
 }
 
 @media only screen and (max-width: var(--width-laptop)) {}

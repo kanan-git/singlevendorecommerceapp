@@ -42,8 +42,9 @@ function ProductCard( props ) {
     };
 
     function collapseLongTitle(string="") {
-        if(string.length > 16) {
-            return string.slice(0, 16) + "...";
+        const limit = 32;
+        if(string.length > limit) {
+            return string.slice(0, limit) + "...";
         };
         return string;
     };
@@ -64,10 +65,10 @@ function ProductCard( props ) {
         for(let i=0; i<cards.length; i++) {
             if(i == activeIndex) {
                 cards[i].style.zIndex = `2`;
-                radios[i].style.backgroundColor = `cornsilk`;
+                radios[i].style.backgroundColor = `var(--color-primary)`;
             } else {
                 cards[i].style.zIndex = `1`;
-                radios[i].style.backgroundColor = `aqua`;
+                radios[i].style.backgroundColor = `var(--color-on-primary)`;
             };
         };
     };
@@ -79,10 +80,10 @@ function ProductCard( props ) {
         for(let i=0; i<cards.length; i++) {
             if(i == 0) {
                 cards[i].style.zIndex = `2`;
-                radios[i].style.backgroundColor = `cornsilk`;
+                radios[i].style.backgroundColor = `var(--color-primary)`;
             } else {
                 cards[i].style.zIndex = `1`;
-                radios[i].style.backgroundColor = `aqua`;
+                radios[i].style.backgroundColor = `var(--color-on-primary)`;
             };
         };
     };
@@ -104,30 +105,31 @@ function ProductCard( props ) {
                 })}
                 <div className="productcard__image-radios">
                     {imgPath.length > 0 && imgPath.map((url, index) => {
-                        return (<div key={index} style={index==0 ? {backgroundColor:"cornsilk"} : {backgroundColor:"aqua"}}></div>);
+                        return (<div key={index} style={index==0 ? {backgroundColor:"var(--color-primary)"} : {backgroundColor:"var(--color-on-primary)"}}></div>);
                     })}
                 </div>
                 <div className="productcard__image-info">
                     <span className="productcard__image-group">
                         {discount>0 && <span className="productcard__image-discount">-{discount}%</span>}
-                        <span className="productcard__image-stock" style={stock!=0 ? {border:"1px solid #00ff00", color:"#00ff00"} : {border:"1px solid #ff0000", color:"#ff0000"}}>{stock==0 ? "Out of Stock" : "In Stock"}</span>
+                        <span className="productcard__image-stock" style={stock!=0 ? {border:"1px solid var(--color-stock-in)", color:"var(--color-stock-in)"} : {border:"1px solid var(--color-stock-out)", color:"var(--color-stock-out)"}}>{stock==0 ? "Out of Stock" : "In Stock"}</span>
                     </span>
                     <span className="productcard__image-imgnav">{imgIndex+1}/{imgPath.length}</span>
                 </div>
             </div>
             {discount > 0 ? (
                 <div className="productcard__price">
-                    <del>${price}</del>
-                    <strong>${price - (price * discount / 100)}</strong>
+                    <del>${price%1==0 ? price.toString()+".00" : price}</del>
+                    <strong>${price%1==0 ? (price-(price*discount/100)).toString()+".00" : price-(price*discount/100)}</strong>
+                    {/* price actually shouldn't calculated here, get also discounted price from backend */}
                 </div>
             ) : (
-                <strong>${price}</strong>
+                <strong>${price%1==0 ? price.toString()+".00" : price}</strong>
             )}
             <div className="productcard__title">
-                <span>{title}</span>
+                <span>{collapseLongTitle(title)}</span>
             </div>
             <div className="productcard__rating">
-                <span className="productcard__rating-count">{ratingPoint}</span>
+                <span className="productcard__rating-count">{ratingPoint%1==0 ?ratingPoint.toString()+".0" :ratingPoint}</span>
                 <span className="productcard__rating-stars">{setStars(ratingPoint, id)}</span>
                 <span className="productcard__rating-reviews">({optimizeCount(ratingCount)})</span>
             </div>

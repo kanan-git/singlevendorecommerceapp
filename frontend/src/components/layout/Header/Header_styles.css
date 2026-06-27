@@ -1,64 +1,234 @@
 .header {
-    background-color: azure;
+    width: var(--main-width);
+    height: var(--size-lg-3);
+    padding: 0 var(--size-sm-1);
+    background-color: var(--color-surface-headerbg);
+    border-bottom: 2px solid var(--color-border-default);
 }
 
 .header__container {
+    width: 100%;
+    height: 100%;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.header__container--logo {}
+.header__container--logo {
+    width: calc(var(--size-lg-3)*2.5);
+    height: auto;
+    overflow: hidden;
+    padding: var(--size-sm-1) 0;
+}
 
-.header__container--logo > img {}
+.header__container--logo > img {
+    width: 100%;
+    height: auto;
+    scale: 1.2;
+    mix-blend-mode: darken;
+}
 
-.header__container--navbar {}
+.header__container--navbar {
+    width: auto;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--size-sm-1);
+}
 
-.header__container--navbar > form {}
+.header__container--navbar > form {
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+}
 
-.header__container--navbar > form > input {}
+.header__container--navbar > form > input {
+    width: var(--width-tablet);
+    height: calc(var(--size-lg-1)*2 - var(--size-lg-1)/2);
+    padding: var(--size-sm-2) var(--size-sm-1) var(--size-sm-2) var(--size-lg-2);
+    border: 1px solid var(--color-border-default);
+    border-radius: var(--size-def-0);
+}
 
-.header__container--navbar > form > button {}
+.header__container--navbar > form > button {
+    z-index: 1;
+    position: absolute;
+    top: 50%;
+    left: var(--size-def-0);
+    transform: translateY(-50%);
+    width: var(--size-lg-1);
+    height: var(--size-lg-1);
+    border: none;
+    background: transparent;
+}
 
-.header__container--navbar > form > button > i {}
+.header__container--navbar > form > button > i {
+    color: var(--color-text-primary);
+}
 
 .header__container--navbar > ul {
+    width: auto;
+    height: 100%;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--size-def-0);
 }
 
-.header__container--navbar > ul > li {}
+.header__container--navbar > ul > li {
+    display: flex;
+    gap: var(--size-sm-2);
 
-.header__container--navbar > ul > li > i {}
+    &:hover > ul {
+        display: flex;
+    }
+}
 
-.header__container--navbar > ul > li > a {}
+.header__container--navbar > ul > li > i {
+    color: var(--color-text-inverse);
+}
+
+.header__container--navbar > ul > li > a {
+    color: var(--color-text-primary);
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.header__container--navbar > ul > li > ul {
+    z-index: 1;
+    position: absolute;
+    top: calc(100% - 3px);
+    left: 0;
+    border: var(--color-border-default);
+    background-color: var(--color-surface-elevated);
+    padding: var(--size-sm-1);
+    width: 100%;
+    display: none;
+    flex-direction: column;
+}
 
 .header__container--cta {
+    width: auto;
+    height: 100%;
     display: flex;
+    align-items: center;
+    gap: var(--size-def-0);
 }
 
-.header__container--cta > div {}
+.header__container--cta > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--size-sm-1);
+}
 
-.header__container--cta > div > button {}
+.header__container--cta > div > button {
+    position: relative;
+    width: calc(var(--size-lg-1)*1.5);
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--color-border-default);
+    border-radius: var(--size-lg-1);
+}
 
-.header__container--cta > div > button > i {}
+.header__container--cta > div > button > i {
+    color: var(--color-text-primary);
+}
 
-.header__container--cta > div > button > div {}
+.header__container--cta > div > button > div {
+    z-index: 1;
+    position: absolute;
+    left: 60%;
+    bottom: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: var(--size-lg-1);
+    min-height: var(--size-lg-1);
+    border-radius: var(--size-lg-1);
+    padding: var(--size-sm-3);
+    font-size: smaller;
+    background-color: var(--color-primary);
+    color: var(--color-text-inverse);
+}
 
-.header__container--cta > button {}
+.header__container--cta > button {
+    width: fit-content;
+    height: fit-content;
+    padding: var(--padding-btn);
+    font-size: var(--size-def-0);
+    font-weight: 700;
+    border: 2px solid var(--color-text-primary);
+    border-radius: var(--size-sm-2);
+}
 
-.header__container--cta > button > span {}
+.header__container--cta > span {
+    position: relative;
+    width: fit-content;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: var(--size-sm-3);
+    cursor: pointer;
 
-.header__container--cta > span {}
+    &:hover > ul {
+        display: flex;
+    }
+}
 
-.header__container--cta > span > span {}
+.header__container--cta > span > span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(var(--size-lg-2)*1.25);
+    height: calc(var(--size-lg-2)*1.25);
+    border: 1px solid var(--color-border-default);
+    border-radius: 50%;
+    background-color: var(--color-surface-elevated);
+    overflow: hidden;
+}
 
-.header__container--cta > span > span > img {}
+.header__container--cta > span > span > img {
+    width: auto;
+    height: 100%;
+}
 
-.header__container--cta > span > i {}
+.header__container--cta > span > i {
+    color: var(--color-text-inverse);
+}
 
-.header__container--cta > span > ul {}
+.header__container--cta > span > ul {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    display: none;
+    flex-direction: column;
+    width: max-content;
+    border: 1px solid var(--color-border-default);
+    background-color: var(--color-surface-elevated);
+    padding: var(--size-sm-1);
+    gap: var(--size-sm-1);
+}
 
-.header__container--cta > span > ul > li {}
+.header__container--cta > span > ul > li {
+    color: var(--color-text-primary);
+    transition: var(--transition-fast);
 
-.header__container--cta > span > ul > li > a, span {}
+    &:hover {
+        background-color: var(--color-text-secondary);
+        color: var(--color-text-inverse);
+    }
+}
+
+.header__container--cta > span > ul > li > a, span {
+    font-size: var(--size-def-0);
+    color: inherit;
+}
 
 @media only screen and (max-width: var(--width-laptop)) {}
 

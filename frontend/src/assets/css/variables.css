@@ -12,8 +12,10 @@
     --color-surface-card: #ffffff;
     --color-surface-elevated: #ffffff;
     --color-surface-input: #ffffff;
-    --color-surface-overlay: rgba(0,0,0,.55);
+    --color-surface-overlay: #0000008c;
     --color-surface-inverse: #111827;
+    --color-surface-headerbg: #307ce0;
+    --color-surface-footerbg: #294175;
 
     --color-border-default: #d1d5db;
     --color-border-muted: #e5e7eb;
@@ -63,19 +65,21 @@
     --margin-center: 0 auto;
 
     /* PADDING PRESETS */
-    --padding-btn: var(--size-esm) var(--size-esm);
-    --padding-container: var(--size-m);
+    --padding-btn: var(--size-sm-2) var(--size-sm-1);
+    --padding-container: var(--size-def-0);
 
     /* TRANSITION PRESETS */
     --transition-fast: 0.15s linear;
     --transition-medium: 0.3s ease-in-out;
 
     /* SIZE VALUES */
-    --size-esm: 0.25rem;
-    --size-sm: 0.5rem;
-    --size-m: 1rem;
-    --size-lg: 2rem;
-    --size-elg: 4rem;
+    --size-sm-3: 0.1rem;
+    --size-sm-2: 0.25rem;
+    --size-sm-1: 0.5rem;
+    --size-def-0: 1rem;
+    --size-lg-1: 1.25rem;
+    --size-lg-2: 2.5rem;
+    --size-lg-3: 4rem;
 
     /* RESPONSIVE SCREENS */
     --width-desktop: 1920px;
@@ -86,6 +90,6 @@
 
     /* FONT SETTINGS */
     --fontfamily-default: Arial, Helvetica, sans-serif;
-    --fontsize-default: 1rem;
+    --fontsize-default: var(--size-def-0);
     --fontweight-default: 500;
 }

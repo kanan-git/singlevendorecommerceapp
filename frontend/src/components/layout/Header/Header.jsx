@@ -25,7 +25,7 @@ function Header() {
                     <form onSubmit={(e) => {
                         // e.preventDefault();
                     }}>
-                        <input type="search" value={query} onChange={e => setQuery(e.target.value)} />
+                        <input type="search" value={query} onChange={e => setQuery(e.target.value)} placeholder="Search anything" />
                         <button>
                             <i className={icons.misc.search}></i>
                         </button>
@@ -39,6 +39,14 @@ function Header() {
                             <i className={icons.pages.core.Explore}></i>
                             <Link to="/explore">Products</Link>
                             <i className={icons.misc.hasDropdown}></i>
+
+                            <ul>
+                                <li>category1</li>
+                                <li>category2</li>
+                                <li>category3</li>
+                                <li>category4</li>
+                                <li>category5</li>
+                            </ul>
                         </li>
                         <li>
                             <i className={icons.pages.info.About}></i>
@@ -62,14 +70,6 @@ function Header() {
                                 <Link to="/admin/products">Products</Link>
                             </li>
                             <li>
-                                <i className={icons.pages.admin.Brands}></i>
-                                <Link to="/admin/brands">Brands</Link>
-                            </li>
-                            <li>
-                                <i className={icons.pages.admin.Categories}></i>
-                                <Link to="/admin/categories">Categories</Link>
-                            </li>
-                            <li>
                                 <i className={icons.pages.admin.UserOrders}></i>
                                 <Link to="/admin/orders">Orders</Link>
                             </li>
@@ -89,9 +89,7 @@ function Header() {
                                 <div>15</div>
                             </button>
                         </div>
-                        <button>
-                            <span>Sign In</span>
-                        </button>
+                        <button>Sign In</button>
                     </>}
                     {token && token.role == roles.user && <>
                         <div>
@@ -106,7 +104,7 @@ function Header() {
                         </div>
                         <span>
                             <span>
-                                <img src="/" alt="profile" />
+                                <img src="/images/users/profile.png" alt="profile" />
                             </span>
                             <i className={icons.misc.hasDropdown}></i>
 
@@ -133,7 +131,7 @@ function Header() {
                         </div>
                         <span>
                             <span>
-                                <img src="/" alt="profile" />
+                                <img src="/images/users/profile.png" alt="profile" />
                             </span>
                             <i className={icons.misc.hasDropdown}></i>
 

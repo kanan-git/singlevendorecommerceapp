@@ -38,7 +38,7 @@ function Footer() {
                         </li>
                     </ul>
                     <form onSubmit={() => {}}>
-                        <input type="text" value={subEmail} onChange={(e) => setSubEmail(e.target.value)} />
+                        <input type="text" value={subEmail} onChange={(e) => setSubEmail(e.target.value)} placeholder="johndoe123@gmail.com" />
                         <button onClick={() => {}}>Subscribe</button>
                     </form>
                 </div>
