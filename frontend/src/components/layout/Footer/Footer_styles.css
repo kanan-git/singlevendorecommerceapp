@@ -1,10 +1,14 @@
 .footer {
     background-color: var(--color-surface-footerbg);
+    width: var(--main-width);
+    padding: var(--padding-container);
+    border-top: 2px solid var(--color-border-default);
 }
 
 .footer__main {
     display: flex;
     justify-content: space-between;
+    padding-bottom: var(--size-def-0);
 }
 
 .footer__main--column {
@@ -14,51 +18,138 @@
     align-items: center;
 }
 
-.footer__main--column > h3 {}
+.footer__main--column > h3 {
+    font-size: var(--size-lg-1);
+    color: var(--color-text-inverse);
+    margin-bottom: var(--size-def-0);
+    text-transform: uppercase;
+}
 
-.footer__main--column > ul {}
+.footer__main--column > ul {
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-sm-2);
+}
 
-.footer__main--column > ul > li {}
+.footer__main--column > ul > li {    background-color: transparent;
+    transition: var(--transition-fast);
 
-.footer__main--column > ul > li > i {}
+    &:hover {
+        transform: translateX(var(--size-sm-1));
+        filter: brightness(0.75) drop-shadow(0 0 var(--size-sm-3) var(--color-text-primary));
+    }
+}
 
-.footer__main--column > ul > li > span {}
+.footer__main--column > ul > li > i {
+    color: var(--color-text-inverse);
+    margin-right: var(--size-sm-1);
+}
 
-.footer__main--column > form {}
+.footer__main--column > ul > li > span {
+    color: var(--color-text-inverse);
+    font-size: var(--size-def-0);
+}
 
-.footer__main--column > form > input {}
+.footer__main--column > form {
+    display: flex;
+    margin-top: var(--size-sm-1);
+}
 
-.footer__main--column > form > button {}
+.footer__main--column > form > input {
+    padding: var(--padding-btn);
+    border: 1px solid var(--color-border-default);
+    border-radius: var(--size-sm-3);
+    outline: none;
+    background-color: var(--color-surface-input);
+}
 
-.footer__main--column > ul > li > a {}
+.footer__main--column > form > button {
+    padding: var(--padding-btn);
+    border: 1px solid var(--color-border-default);
+    border-radius: var(--size-sm-3);
+    outline: none;
+    background-color: var(--color-primary);
+    color: var(--color-text-inverse);
+}
+
+.footer__main--column > ul > li > a {
+    color: var(--color-text-inverse);
+    font-size: var(--size-def-0);
+}
 
 .footer__main--column > div:first-of-type {
     width: calc(var(--size-lg-3)*2.5);
     overflow: hidden;
-    mix-blend-mode: darken;
+    mix-blend-mode: lighten;
+    filter: invert(1);
 }
 
 .footer__main--column > div:first-of-type > img {
     width: 100%;
 }
 
-.footer__main--column > p {}
+.footer__main--column > p {
+    color: var(--color-text-inverse);
+    margin: var(--size-def-0) 0;
+}
 
-.footer__main--column > div:last-of-type {}
+.footer__main--column > div:last-of-type {
+    display: flex;
+    gap: var(--size-def-0);
+}
 
-.footer__main--column > div:last-of-type > a {}
-
-.footer__main--column > div:last-of-type > a > i {}
-
-.footer__bottom {
+.footer__main--column > div:last-of-type > a {
+    width: calc(var(--size-lg-1) * 1.5);
+    aspect-ratio: 1;
+    border: var(--color-text-primary);
+    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: var(--transition-fast);
+    
+    &:nth-of-type(1) {
+        background: linear-gradient(125deg, #da543c, #6231d6);
+    }
+    &:nth-of-type(2) {
+        background: linear-gradient(45deg, #3cd5da, #d63168);
+    }
+    &:nth-of-type(3) {
+        background: linear-gradient(125deg, #3c80da, #140101);
+    }
+    &:nth-of-type(4) {
+        background: linear-gradient(45deg, #f50f0f, #e06a6a);
+    }
+
+    &:hover {
+        scale: 1.1;
+        filter: drop-shadow(0 0 6px #000000) brightness(0.75);
+    }
 }
 
-.footer__bottom > span {}
+.footer__main--column > div:last-of-type > a > i {
+    color: var(--color-text-inverse);
+}
 
-.footer__bottom > span > button {}
+.footer__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--color-border-default);
+    padding: var(--size-def-0) var(--size-lg-3);
+}
+
+.footer__bottom > span {
+    display: flex;
+    gap: var(--size-def-0);
+    color: var(--color-text-inverse);
+}
+
+.footer__bottom > span > button {
+    color: var(--color-text-inverse);
+    background-color: transparent;
+    border: none;
+}
 
 @media only screen and (max-width: var(--width-laptop)) {}
 

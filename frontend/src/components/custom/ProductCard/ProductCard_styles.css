@@ -1,10 +1,10 @@
 .productcard {
     display: block;
-    width: 16rem;
+    width: 18rem;
     height: 22rem;
     border: 1px solid var(--color-border-default);
-    border-radius: 0.5rem;
-    padding: 0.5rem;
+    border-radius: var(--size-sm-1);
+    padding: var(--size-sm-1);
     color: var(--color-content-dark);
     background-color: var(--color-surface-card);
     overflow: hidden;
@@ -23,12 +23,11 @@
     position: absolute;
     top: 0;
     left: 0;
-    display: flex;
+    /* display: flex; */
     width: 100%;
     height: 100%;
     border: 1px solid var(--color-border-default);
     background-color: var(--color-selection);
-    color: yellow;
 }
 
 .productcard__image-radios {
@@ -42,14 +41,14 @@
     display: none;
     justify-content: center;
     align-items: center;
-    gap: 0.25rem;
-    padding: 0 0.25rem 0.5rem 0.25rem;
+    gap: var(--size-sm-2);
+    padding: 0 var(--size-sm-2) var(--size-sm-1) var(--size-sm-2);
 }
 
 .productcard__image-radios > div {
-    width: 0.5rem;
+    width: var(--size-sm-1);
     aspect-ratio: 1;
-    background-color: aqua;
+    background-color: var(--color-on-primary);
     border-radius: 50%;
     flex-shrink: 1;
 }
@@ -61,7 +60,7 @@
     top: 0;
     width: 100%;
     height: auto;
-    padding: 0.25rem;
+    padding: var(--size-sm-2);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -69,58 +68,108 @@
 
 .productcard__image-group {
     display: flex;
-    gap: 0.25rem;
+    gap: var(--size-sm-2);
 }
 
 .productcard__image-discount {
-    background-color: white;
-    border: 1px solid red;
-    color: red;
+    background-color: var(--color-surface-elevated);
+    border: 1px solid var(--color-sale);
+    color: var(--color-sale);
     scale: 0.75;
 }
 
 .productcard__image-stock {
-    background-color: white;
+    background-color: var(--color-surface-elevated);
     scale: 0.75;
 }
 
 .productcard__image-imgnav {
-    background-color: #ffffff90;
+    background-color: var(--color-surface-overlay2);
+    border-radius: var(--size-sm-3);
     backdrop-filter: blur(10px);
-    opacity: .75;
+    opacity: 75%;
 }
 
-.productcard__price {}
+.productcard__price {
+    width: fit-content;
+    display: flex;
+    gap: var(--size-sm-1);
+    margin: var(--margin-center);
+    margin-top: var(--size-sm-3);
+    margin-bottom: var(--size-sm-3);
+}
 
-.productcard__price > del {}
+.productcard__price > del {
+    font-size: var(--size-def-0);
+    color: var(--color-text-link);
+}
 
-.productcard__price > strong {}
+.productcard__price > strong {
+    font-size: var(--size-lg-1);
+    color: var(--color-text-primary);
+}
 
-.productcard__title {}
+.productcard__title {
+    font-size: var(--size-def-0);
+}
 
-.productcard__title > span {}
+.productcard__title > span {
+    color: var(--color-text-primary);
+}
 
-.productcard__rating {}
+.productcard__rating {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: var(--size-sm-1);
+    margin: var(--size-sm-3) 0;
+}
 
-.productcard__rating-count {}
+.productcard__rating-point {
+    color: var(--color-text-primary);
+    font-weight: 700;
+}
 
-.productcard__rating-stars {}
+.productcard__rating-stars {
+    display: flex;
+    gap: var(--size-sm-3);
+}
 
-.productcard__rating-reviews {}
+.productcard__rating-stars > i {
+    color: var(--color-rating);
+}
 
-.productcard__rating-buttons {}
+.productcard__rating-reviews {
+    color: var(--color-text-primary);
+    font-weight: 500;
+}
+
+.productcard__rating-buttons {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: var(--size-sm-1);
+    margin: var(--margin-center);
+}
 
 .productcard__rating-buttons > button {
-    background-color: yellow;
+    background-color: var(--color-selection);
+    border: 1px solid var(--color-border-default);
 }
 
 .productcard__rating-buttons > button:last-of-type {
-    background-color: gold;
+    background-color: var(--color-selection);
+    border: 1px solid var(--color-border-default);
 }
 
-.productcard__rating-buttons > button > i {}
+.productcard__rating-buttons > button > i {
+    font-size: var(--size-def-0);
+    margin-right: var(--size-sm-2);
+}
 
-.productcard__rating-buttons > button > span {}
+.productcard__rating-buttons > button > span {
+    font-size: calc(var(--size-def-0)*0.75);
+}
 
 @media only screen and (max-width: var(--width-laptop)) {}
 

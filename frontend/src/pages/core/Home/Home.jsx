@@ -39,21 +39,17 @@ function Home() {
 
     return (
         <main className="home">
-            <section className="home__hero">
+            {/* <section className="home__hero">
                 homepage hero
                 carousel cta
-            </section>
+            </section> */}
 
             <section className="home__limitedoffer">
-                homepage limitedoffer
-                limited offer detailed link to explore with params & cards
-                4 in first carousel, another 4 on second carousel
-
                 <Link className="home__limitedoffer-header" to="/explore?item=special">
                     <h2>Limited Time Offer</h2>
                     <button>
                         <span>Show More</span>
-                        <i className=""></i>
+                        <i className={icons.carousel.next}></i>
                     </button>
                 </Link>
 
@@ -72,26 +68,25 @@ function Home() {
                 </div>
             </section>
 
-            <section className="home__whyus">
+            {/* <section className="home__whyus">
                 homepage whyus
                 little info and about page link
-                <i className={icons.pages.admin.Dashboard}></i>
-            </section>
+            </section> */}
 
-            <section className="home__categories">
+            {/* <section className="home__categories">
                 homepage categories
                 category cards with interactive effect
-            </section>
+            </section> */}
 
-            <section className="home__trending">
+            {/* <section className="home__trending">
                 homepage trending
                 header and trend 20 productcard then show more btn
-            </section>
+            </section> */}
 
-            <section className="home__brands">
+            {/* <section className="home__brands">
                 homepage brands
                 brand cards with draggable carousel in infinite auto slow scroll
-            </section>
+            </section> */}
         </main>
     );
 };

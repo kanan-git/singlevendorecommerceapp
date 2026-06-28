@@ -9,6 +9,13 @@ function ProductCard( props ) {
 
     const [imgIndex, setImgIndex] = useState(0);
 
+    const colors = {
+        radioBtn_inactive: "--color-on-primary",
+        radioBtn_active: "--color-primary",
+        sticker_stock_in: "--color-stock-in",
+        sticker_stock_out: "--color-stock-out",
+    };
+
     function setStars(point, cardid) {
         const stars = [];
         for(let i=0; i<5; i++) {
@@ -65,10 +72,10 @@ function ProductCard( props ) {
         for(let i=0; i<cards.length; i++) {
             if(i == activeIndex) {
                 cards[i].style.zIndex = `2`;
-                radios[i].style.backgroundColor = `var(--color-primary)`;
+                radios[i].style.backgroundColor = `var(${colors.radioBtn_active})`;
             } else {
                 cards[i].style.zIndex = `1`;
-                radios[i].style.backgroundColor = `var(--color-on-primary)`;
+                radios[i].style.backgroundColor = `var(${colors.radioBtn_inactive})`;
             };
         };
     };
@@ -80,10 +87,10 @@ function ProductCard( props ) {
         for(let i=0; i<cards.length; i++) {
             if(i == 0) {
                 cards[i].style.zIndex = `2`;
-                radios[i].style.backgroundColor = `var(--color-primary)`;
+                radios[i].style.backgroundColor = `var(${colors.radioBtn_active})`;
             } else {
                 cards[i].style.zIndex = `1`;
-                radios[i].style.backgroundColor = `var(--color-on-primary)`;
+                radios[i].style.backgroundColor = `var(${colors.radioBtn_inactive})`;
             };
         };
     };
@@ -105,13 +112,13 @@ function ProductCard( props ) {
                 })}
                 <div className="productcard__image-radios">
                     {imgPath.length > 0 && imgPath.map((url, index) => {
-                        return (<div key={index} style={index==0 ? {backgroundColor:"var(--color-primary)"} : {backgroundColor:"var(--color-on-primary)"}}></div>);
+                        return (<div key={index} style={index==0 ? {backgroundColor:`var(${colors.radioBtn_active})`} : {backgroundColor:`var(${colors.radioBtn_inactive})`}}></div>);
                     })}
                 </div>
                 <div className="productcard__image-info">
                     <span className="productcard__image-group">
                         {discount>0 && <span className="productcard__image-discount">-{discount}%</span>}
-                        <span className="productcard__image-stock" style={stock!=0 ? {border:"1px solid var(--color-stock-in)", color:"var(--color-stock-in)"} : {border:"1px solid var(--color-stock-out)", color:"var(--color-stock-out)"}}>{stock==0 ? "Out of Stock" : "In Stock"}</span>
+                        <span className="productcard__image-stock" style={stock!=0 ? {border:`1px solid var(${colors.sticker_stock_in})`, color:`var(${colors.sticker_stock_in})`} : {border:`1px solid var(${colors.sticker_stock_out})`, color:`var(${colors.sticker_stock_out})`}}>{stock==0 ? "Out of Stock" : "In Stock"}</span>
                     </span>
                     <span className="productcard__image-imgnav">{imgIndex+1}/{imgPath.length}</span>
                 </div>
@@ -129,11 +136,10 @@ function ProductCard( props ) {
                 <span>{collapseLongTitle(title)}</span>
             </div>
             <div className="productcard__rating">
-                <span className="productcard__rating-count">{ratingPoint%1==0 ?ratingPoint.toString()+".0" :ratingPoint}</span>
+                <span className="productcard__rating-point">{ratingPoint%1==0 ?ratingPoint.toString()+".0" :ratingPoint}</span>
                 <span className="productcard__rating-stars">{setStars(ratingPoint, id)}</span>
                 <span className="productcard__rating-reviews">({optimizeCount(ratingCount)})</span>
             </div>
-
             
             <div className="productcard__rating-buttons" onClick={(e) => {
                 e.preventDefault();

@@ -13,9 +13,9 @@ function Header() {
     return (
         <header className="header">
             <section className="header__container">
-                {/* <button>
+                <button style={{display:"none"}}>
                     mobile button
-                </button> */}
+                </button>
 
                 <Link to="/" className="header__container--logo">
                     <img src={Logo} alt="logo" />

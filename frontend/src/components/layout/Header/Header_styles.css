@@ -1,6 +1,6 @@
 .header {
     width: var(--main-width);
-    height: var(--size-lg-3);
+    min-height: var(--size-lg-3);
     padding: 0 var(--size-sm-1);
     background-color: var(--color-surface-headerbg);
     border-bottom: 2px solid var(--color-border-default);
@@ -37,6 +37,7 @@
     align-items: center;
     justify-content: center;
     gap: var(--size-sm-1);
+    padding-top: var(--size-def-0);
 }
 
 .header__container--navbar > form {
