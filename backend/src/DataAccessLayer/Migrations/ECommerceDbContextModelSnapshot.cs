@@ -96,6 +96,24 @@ namespace backend.src.DataAccessLayer.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("Entities.Concrete.Core.Brand", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Brand");
+                });
+
             modelBuilder.Entity("Entities.Concrete.Core.Category", b =>
                 {
                     b.Property<Guid>("Id")
@@ -112,6 +130,28 @@ namespace backend.src.DataAccessLayer.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Category");
+                });
+
+            modelBuilder.Entity("Entities.Concrete.Core.Comment", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("ProductId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("TextContent")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("Comment");
                 });
 
             modelBuilder.Entity("Entities.Concrete.Core.MediaFile", b =>
@@ -157,49 +197,66 @@ namespace backend.src.DataAccessLayer.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid?>("BrandId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<Guid?>("CategoryId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.PrimitiveCollection<string>("Comments")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(255)
+                        .HasColumnType("NVarChar");
 
                     b.Property<int>("Discount")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(0);
 
                     b.Property<decimal>("DiscountedPrice")
-                        .HasColumnType("decimal(18,2)");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("decimal(18,2)")
+                        .HasDefaultValue(0m);
 
                     b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("decimal(18,2)")
+                        .HasDefaultValue(0m);
 
                     b.Property<double>("Rating")
-                        .HasColumnType("float");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("float")
+                        .HasDefaultValue(0.0);
 
                     b.Property<long>("RatingPointSum")
-                        .HasColumnType("bigint");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasDefaultValue(0L);
 
                     b.Property<long>("RatingReviewCount")
-                        .HasColumnType("bigint");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasDefaultValue(0L);
 
                     b.Property<int>("Stock")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(0);
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(255)
+                        .HasColumnType("NVarChar");
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("BrandId");
+
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Products");
+                    b.ToTable("Products", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole<System.Guid>", b =>
@@ -333,6 +390,13 @@ namespace backend.src.DataAccessLayer.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("Entities.Concrete.Core.Comment", b =>
+                {
+                    b.HasOne("Entities.Concrete.Core.Product", null)
+                        .WithMany("Comments")
+                        .HasForeignKey("ProductId");
+                });
+
             modelBuilder.Entity("Entities.Concrete.Core.MediaFile", b =>
                 {
                     b.HasOne("Entities.Concrete.Core.Product", null)
@@ -342,9 +406,15 @@ namespace backend.src.DataAccessLayer.Migrations
 
             modelBuilder.Entity("Entities.Concrete.Core.Product", b =>
                 {
+                    b.HasOne("Entities.Concrete.Core.Brand", "Brand")
+                        .WithMany()
+                        .HasForeignKey("BrandId");
+
                     b.HasOne("Entities.Concrete.Core.Category", "Category")
                         .WithMany()
                         .HasForeignKey("CategoryId");
+
+                    b.Navigation("Brand");
 
                     b.Navigation("Category");
                 });
@@ -402,6 +472,8 @@ namespace backend.src.DataAccessLayer.Migrations
 
             modelBuilder.Entity("Entities.Concrete.Core.Product", b =>
                 {
+                    b.Navigation("Comments");
+
                     b.Navigation("ImgPath");
                 });
 #pragma warning restore 612, 618

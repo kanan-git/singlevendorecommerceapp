@@ -2,7 +2,7 @@ using AutoMapper;
 using Entities.Concrete.Core;
 using Entities.DTOs.Product;
 
-namespace Business.Mappers;
+namespace Business.Profiles;
 
 public class ProductMapper : Profile
 {
