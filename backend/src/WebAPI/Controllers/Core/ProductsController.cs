@@ -1,8 +1,6 @@
-using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using DataAccessLayer.Repositories.Abstract;
+using Business.Services.Abstract;
 using Entities.DTOs.Product;
-using Entities.Concrete.Core;
 
 namespace WebAPI.Controllers;
 
@@ -10,22 +8,19 @@ namespace WebAPI.Controllers;
 [Route("api/[controller]/[action]")]
 public class ProductsController : ControllerBase
 {
-    private readonly IProductRepository _productRepo;
-    private readonly IMapper _mapper;
-    public ProductsController(IProductRepository productRepo, IMapper mapper)
+    private readonly IProductServices _productService;
+    public ProductsController(IProductServices productService)
     {
-        _productRepo = productRepo;
-        _mapper = mapper;
+        _productService = productService;
     }
 
     [HttpGet]
     public async Task<IActionResult> GetAllProducts()
     {
-        var products = await _productRepo.GetAllProductsAsync();
-        var result = _mapper.Map<List<ProductResponseDto>>(products);
+        var data = await _productService.GetAllProductsAsync();
         return Ok(new {
             Status = 200,
-            Data = result,
+            Data = data,
             Message = ""
         });
     }
@@ -33,11 +28,10 @@ public class ProductsController : ControllerBase
     [HttpGet("{id}")]
     public async Task<IActionResult> GetProductById(Guid id)
     {
-        var product = await _productRepo.GetProductByIdAsync(id);
-        var result = _mapper.Map<ProductResponseDto>(product);
+        var data = await _productService.GetProductByIdAsync(id);
         return Ok(new {
             Status = 200,
-            Data = result,
+            Data = data,
             Message = ""
         });
     }
@@ -45,9 +39,7 @@ public class ProductsController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> CreateProduct(ProductCreateDto productDto)
     {
-        var newProduct = _mapper.Map<Product>(productDto);
-        await _productRepo.AddProductAsync(newProduct);
-        await _productRepo.SaveProductChangesAsync();
+        await _productService.AddNewProductAsync(productDto);
         return Ok(new {
             Status = 201,
             Data = productDto,
@@ -58,13 +50,10 @@ public class ProductsController : ControllerBase
     [HttpPut("{id}")]
     public async Task<IActionResult> UpdateProduct(Guid id, ProductUpdateDto productDto)
     {
-        var product = await _productRepo.GetProductByIdAsync(id);
-        _mapper.Map(productDto, product);
-        _productRepo.UpdateProduct(product);
-        await _productRepo.SaveProductChangesAsync();
+        await _productService.UpdateProduct(id, productDto);
         return Ok(new {
             Status = 200,
-            Data = product,
+            Data = productDto,
             Message = ""
         });
     }
@@ -72,13 +61,10 @@ public class ProductsController : ControllerBase
     [HttpDelete("{id}")]
     public async Task<IActionResult> RemoveProduct(Guid id)
     {
-        var product = await _productRepo.GetProductByIdAsync(id);
-        var deleteProduct = _mapper.Map<Product>(product);
-        _productRepo.DeleteProduct(deleteProduct);
-        await _productRepo.SaveProductChangesAsync();
+        var data = await _productService.DeleteProduct(id);
         return Ok(new {
             Status = 200,
-            Data = product,
+            Data = data,
             Message = ""
         });
     }

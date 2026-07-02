@@ -1,6 +1,8 @@
 using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
+using Business.Services.Abstract;
+using Business.Services.Concrete;
 using DataAccessLayer.ContextDB.EFCore;
 using DataAccessLayer.Repositories.Abstract;
 using DataAccessLayer.Repositories.Concrete.EFCore;
@@ -9,6 +11,7 @@ using Entities.Concrete.Auth;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<IProductServices, ProductServices>();
 builder.Services.AddDbContext<ECommerceDbContext>(options => 
     options.UseSqlServer(builder.Configuration.GetConnectionString("Default"))
 );
