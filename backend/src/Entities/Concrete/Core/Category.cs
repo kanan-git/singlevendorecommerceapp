@@ -5,7 +5,7 @@ namespace Entities.Concrete.Core;
 public class Category : BaseEntity
 {
     #region main
-    public required string Name {get; set;}
+    public string Name {get; set;} = null!;
     #endregion
 
     #region relational

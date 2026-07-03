@@ -1,17 +1,8 @@
+using Core.DAL.Repositories.Abstract;
 using Entities.Concrete.Core;
 
 namespace DataAccessLayer.Repositories.Abstract;
 
-public interface IProductRepository
+public interface IProductRepository : IBaseRepository<Product>
 {
-    Task <ICollection<Product>> GetAllProductsAsync();
-    Task <Product> GetProductByIdAsync(Guid id);
-    Task AddProductAsync(Product product);
-    void UpdateProduct(Product product);
-    void DeleteProduct(Product product);
-    Task<int> SaveProductChangesAsync();
-
-    // IQueryable
-    // IsExistAsync
-    // GetAllPaginated
 }

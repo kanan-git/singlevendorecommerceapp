@@ -1,6 +1,8 @@
+using Core.Entities.Abstract;
+
 namespace Entities.Common;
 
-public class BaseEntity
+public class BaseEntity : IEntity
 {
     public Guid Id {get; set;} // note: only response dto, not update and create
     public DateTime CreatedAt = DateTime.UtcNow;

@@ -2,7 +2,7 @@ namespace Entities.DTOs.Product;
 
 public class ProductCreateDto
 {
-    public required string Title {get; set;}
+    public string Title {get; set;} = null!;
     public string? Description {get; set;}
     public int Stock {get; set;} = 0;
     public decimal Price {get; set;}

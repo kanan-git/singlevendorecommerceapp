@@ -5,13 +5,13 @@ namespace Entities.Concrete.Core;
 public class MediaFile : BaseEntity
 {
     #region main
-    public required string FilePath {get; set;}
-    public required string FileType {get; set;}
+    public string FilePath {get; set;} = null!;
+    public string FileType {get; set;} = null!;
     public long FileSize {get; set;}
     #endregion
 
     #region relational
-    public required string EntityType {get; set;}
+    public string EntityType {get; set;} = null!;
     public Guid EntityId {get; set;}
     #endregion
 }

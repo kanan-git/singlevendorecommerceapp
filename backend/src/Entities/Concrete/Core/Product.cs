@@ -5,10 +5,10 @@ namespace Entities.Concrete.Core;
 public class Product : BaseEntity
 {
     #region main
-    public required string Title {get; set;}
+    public string Title {get; set;} = null!;
     public string? Description {get; set;}
     public int Stock {get; set;} = 0;
-    public required decimal Price {get; set;}
+    public decimal Price {get; set;}
     public int Discount {get; set;} = 0;
     public decimal DiscountedPrice {get; set;}
     public long RatingReviewCount {get; set;} = 0;
