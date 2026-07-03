@@ -38,8 +38,8 @@ public class ProductRepository : IProductRepository
         _dbContext.Products.Remove(product);
     }
 
-    public async Task SaveProductChangesAsync()
+    public async Task<int> SaveProductChangesAsync()
     {
-        await _dbContext.SaveChangesAsync();
+        return await _dbContext.SaveChangesAsync();
     }
 }

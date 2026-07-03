@@ -18,54 +18,54 @@ public class ProductsController : ControllerBase
     public async Task<IActionResult> GetAllProducts()
     {
         var data = await _productService.GetAllProductsAsync();
-        return Ok(new {
-            Status = 200,
-            Data = data,
-            Message = ""
-        });
+        if(data.Success)
+        {
+            return Ok(data);
+        }
+        return BadRequest(data);
     }
 
     [HttpGet("{id}")]
     public async Task<IActionResult> GetProductById(Guid id)
     {
         var data = await _productService.GetProductByIdAsync(id);
-        return Ok(new {
-            Status = 200,
-            Data = data,
-            Message = ""
-        });
+        if(data.Success)
+        {
+            return Ok(data);
+        }
+        return BadRequest(data);
     }
 
     [HttpPost]
     public async Task<IActionResult> CreateProduct(ProductCreateDto productDto)
     {
-        await _productService.AddNewProductAsync(productDto);
-        return Ok(new {
-            Status = 201,
-            Data = productDto,
-            Message = ""
-        });
+        var result = await _productService.AddNewProductAsync(productDto);
+        if(result.Success)
+        {
+            return Ok(result);
+        }
+        return BadRequest(result);
     }
 
     [HttpPut("{id}")]
     public async Task<IActionResult> UpdateProduct(Guid id, ProductUpdateDto productDto)
     {
-        await _productService.UpdateProduct(id, productDto);
-        return Ok(new {
-            Status = 200,
-            Data = productDto,
-            Message = ""
-        });
+        var result = await _productService.UpdateProduct(id, productDto);
+        if(result.Success)
+        {
+            return Ok(result);
+        }
+        return BadRequest(result);
     }
 
     [HttpDelete("{id}")]
     public async Task<IActionResult> RemoveProduct(Guid id)
     {
-        var data = await _productService.DeleteProduct(id);
-        return Ok(new {
-            Status = 200,
-            Data = data,
-            Message = ""
-        });
+        var result = await _productService.DeleteProduct(id);
+        if(result.Success)
+        {
+            return Ok(result);
+        }
+        return BadRequest(result);
     }
 }

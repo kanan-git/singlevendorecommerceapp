@@ -9,5 +9,9 @@ public interface IProductRepository
     Task AddProductAsync(Product product);
     void UpdateProduct(Product product);
     void DeleteProduct(Product product);
-    Task SaveProductChangesAsync();
+    Task<int> SaveProductChangesAsync();
+
+    // IQueryable
+    // IsExistAsync
+    // GetAllPaginated
 }
