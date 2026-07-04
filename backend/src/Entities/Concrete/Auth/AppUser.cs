@@ -4,6 +4,10 @@ namespace Entities.Concrete.Auth;
 
 public class AppUser : IdentityUser<Guid>
 {
+    #region main
     public string FirstName {get; set;} = string.Empty;
     public string LastName {get; set;} = string.Empty;
+    public DateTime DateOfBirth {get; set;}
+    public string ProfileImage {get; set;}
+    #endregion
 }

@@ -28,6 +28,17 @@ public class ProductsController : ControllerBase
         return BadRequest(data);
     }
 
+    [HttpGet("{page}")]
+    public async Task<IActionResult> GetAllProductsPaginated(int page, int size)
+    {
+        var data = await _productService.GetAllProductsPaginatedAsync(page, size);
+        if(data.Success)
+        {
+            return Ok(data);
+        }
+        return BadRequest(data);
+    }
+
     [HttpGet("{id}")]
     public async Task<IActionResult> GetProductById(Guid id)
     {

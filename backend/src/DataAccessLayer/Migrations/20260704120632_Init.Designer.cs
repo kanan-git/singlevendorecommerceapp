@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace backend.src.DataAccessLayer.Migrations
 {
     [DbContext(typeof(ECommerceDbContext))]
-    [Migration("20260701111107_SomeChanges")]
-    partial class SomeChanges
+    [Migration("20260704120632_Init")]
+    partial class Init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

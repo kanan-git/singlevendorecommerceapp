@@ -576,3 +576,7 @@ const languages = {
 };
 
 export default languages;
+
+// write post fetch inside loop, send all these data to backend to create data on db
+// create txt file for this file and all static information like this as backup for possible database drop issue
+// remove this file and all fix all frontend lines uses this

@@ -1,5 +1,6 @@
 using AutoMapper;
 using Business.Services.Abstract;
+using Core.Utilities.Constants;
 using Core.Utilities.Result.Abstract;
 using Core.Utilities.Result.Concrete;
 using DataAccessLayer.Repositories.Abstract;
@@ -24,9 +25,9 @@ public class ProductServices : IProductServices
         var data = _mapper.Map<List<ProductResponseDto>>(products);
         if(data.Count == 0)
         {
-            return new ErrorDataResult<List<ProductResponseDto>>(message:"404");
+            return new ErrorDataResult<List<ProductResponseDto>>(message:ResultMessages.NoMatchFound);
         }
-        return new SuccessDataResult<List<ProductResponseDto>>(data:data, message:"200");
+        return new SuccessDataResult<List<ProductResponseDto>>(data:data, message:ResultMessages.Readed);
     }
 
     public async Task<IDataResult<List<ProductResponseDto>>> GetAllProductsPaginatedAsync(int page, int size)
@@ -35,9 +36,9 @@ public class ProductServices : IProductServices
         var data = _mapper.Map<List<ProductResponseDto>>(products);
         if(data.Count == 0)
         {
-            return new ErrorDataResult<List<ProductResponseDto>>(message:"404");
+            return new ErrorDataResult<List<ProductResponseDto>>(message:ResultMessages.NoMatchFound);
         }
-        return new SuccessDataResult<List<ProductResponseDto>>(data:data, message:"200");
+        return new SuccessDataResult<List<ProductResponseDto>>(data:data, message:ResultMessages.Readed);
     }
 
     public async Task<IDataResult<ProductResponseDto>> GetProductByIdAsync(Guid id)
@@ -45,10 +46,10 @@ public class ProductServices : IProductServices
         var product = await _productRepo.GetAsync(p => p.Id==id);
         if(product == null)
         {
-            return new ErrorDataResult<ProductResponseDto>(message:"404");
+            return new ErrorDataResult<ProductResponseDto>(message:ResultMessages.NoMatchFound);
         }
         var data = _mapper.Map<ProductResponseDto>(product);
-        return new SuccessDataResult<ProductResponseDto>(data:data, message:"200");
+        return new SuccessDataResult<ProductResponseDto>(data:data, message:ResultMessages.Readed);
     }
 
     public async Task<Core.Utilities.Result.Abstract.IResult> AddNewProductAsync(ProductCreateDto createDto)
@@ -57,11 +58,11 @@ public class ProductServices : IProductServices
         try{
             await _productRepo.AddAsync(newProduct);
             await _productRepo.SaveAsync();
-            return new SuccessResult(message:"201");
+            return new SuccessResult(message:ResultMessages.Created);
         }
         catch(Exception)
         {
-            return new ErrorResult(message:"500");
+            return new ErrorResult(message:ResultMessages.UnknownFail);
         }
     }
 
@@ -70,18 +71,18 @@ public class ProductServices : IProductServices
         var product = await _productRepo.GetAsync(p => p.Id==id);
         if(product == null)
         {
-            return new ErrorResult(message:"404");
+            return new ErrorResult(message:ResultMessages.NoMatchFound);
         }
         try
         {
             _mapper.Map(updateDto, product);
             _productRepo.Update(product);
             await _productRepo.SaveAsync();
-            return new SuccessResult(message:"200");
+            return new SuccessResult(message:ResultMessages.Updated);
         }
         catch (Exception)
         {
-            return new ErrorResult(message:"500");
+            return new ErrorResult(message:ResultMessages.UnknownFail);
         }
     }
 
@@ -90,17 +91,17 @@ public class ProductServices : IProductServices
         var product = await _productRepo.GetAsync(p => p.Id==id);
         if(product == null)
         {
-            return new ErrorResult(message:"404");
+            return new ErrorResult(message:ResultMessages.NoMatchFound);
         }
         try
         {
             _productRepo.Remove(product);
             await _productRepo.SaveAsync();
-            return new SuccessResult(message:"200");
+            return new SuccessResult(message:ResultMessages.Deleted);
         }
         catch (Exception)
         {
-            return new ErrorResult(message:"500");
+            return new ErrorResult(message:ResultMessages.UnknownFail);
         }
     }
 }

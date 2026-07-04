@@ -58,6 +58,9 @@
     dotnet new tool-manifest;
     dotnet tool install dotnet-ef;
     dotnet build ./ECommerceNTierAPI.sln;
+    dotnet ef migrations remove;
+    dotnet ef database drop;
+    mkdir ./src; mkdir ./src/Business ./src/Core ./src/Entities ./src/WebAPI ./src/DataAccessLayer; mkdir ./src/DataAccessLayer/Migrations;
     dotnet ef migrations add Init -o ./src/DataAccessLayer/Migrations;
     dotnet ef database update;
     dotnet run;
