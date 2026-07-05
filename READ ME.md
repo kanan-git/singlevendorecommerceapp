@@ -63,4 +63,14 @@
     mkdir ./src; mkdir ./src/Business ./src/Core ./src/Entities ./src/WebAPI ./src/DataAccessLayer; mkdir ./src/DataAccessLayer/Migrations;
     dotnet ef migrations add Init -o ./src/DataAccessLayer/Migrations;
     dotnet ef database update;
+    dotnet user-secrets init;
+    dotnet user-secrets set "ConnectionStrings:Default" "Server=localhost;Database=EcommerceDB;Trusted_Connection=True;TrustServerCertificate=True";
+    dotnet user-secrets set "Admin:UserName" "admin";
+    dotnet user-secrets set "Admin:Password" "Admin123*";
+    dotnet user-secrets set "TokenOptions:Audience" "http://localhost:5039";
+    dotnet user-secrets set "TokenOptions:Issuer" "http://localhost:5039";
+    dotnet user-secrets set "TokenOptions:SecurityKey" "3xTr3m3Ly-h4Rd-s3cR3T-kEy-thAT-y0u-c4nt-f1nd-Out-Im-t3ll1ng-yOU";
+    dotnet user-secrets set "TokenOptions:AccessTokenExpiration" 15;
+    dotnet user-secrets set "TokenOptions:RefreshTokenExpiration" 7;
+    dotnet user-secrets list; // %APPDATA%\Microsoft\UserSecrets\<UserSecretsId>\secrets.json
     dotnet run;

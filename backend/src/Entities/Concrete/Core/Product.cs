@@ -10,10 +10,11 @@ public class Product : BaseEntity
     public int Stock {get; set;} = 0;
     public decimal Price {get; set;}
     public int Discount {get; set;} = 0;
-    public decimal DiscountedPrice {get; set;}
+    public decimal DiscountedPrice {get; set;} = 0;
     public long RatingReviewCount {get; set;} = 0;
     public long RatingPointSum {get; set;} = 0;
     public double Rating {get; set;} = 0;
+    public string? Color {get; set;}
     #endregion
 
     #region relational
