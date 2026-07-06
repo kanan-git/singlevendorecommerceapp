@@ -171,3 +171,8 @@ C:\Users\kanan\OneDrive\Desktop\Full Stack Projects\ecommerce\backend\obj\Debug\
 C:\Users\kanan\OneDrive\Desktop\Full Stack Projects\ecommerce\backend\obj\Debug\net10.0\backend.pdb
 C:\Users\kanan\OneDrive\Desktop\Full Stack Projects\ecommerce\backend\obj\Debug\net10.0\backend.genruntimeconfig.cache
 C:\Users\kanan\OneDrive\Desktop\Full Stack Projects\ecommerce\backend\obj\Debug\net10.0\ref\backend.dll
+C:\Users\kanan\OneDrive\Desktop\Full Stack Projects\ecommerce\backend\bin\Debug\net10.0\BouncyCastle.Cryptography.dll
+C:\Users\kanan\OneDrive\Desktop\Full Stack Projects\ecommerce\backend\bin\Debug\net10.0\MailKit.dll
+C:\Users\kanan\OneDrive\Desktop\Full Stack Projects\ecommerce\backend\bin\Debug\net10.0\MimeKit.dll
+C:\Users\kanan\OneDrive\Desktop\Full Stack Projects\ecommerce\backend\bin\Debug\net10.0\Stripe.net.dll
+C:\Users\kanan\OneDrive\Desktop\Full Stack Projects\ecommerce\backend\bin\Debug\net10.0\Twilio.dll

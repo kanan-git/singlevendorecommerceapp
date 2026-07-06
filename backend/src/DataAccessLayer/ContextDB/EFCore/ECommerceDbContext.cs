@@ -16,6 +16,7 @@ public class ECommerceDbContext : IdentityDbContext<AppUser, IdentityRole<Guid>,
     public DbSet<Category> Categories {get; set;} = null!;
     public DbSet<Comment> Comments {get; set;} = null!;
     public DbSet<MediaFile> MediaFiles {get; set;} = null!;
+    public DbSet<Language> Languages {get; set;} = null!;
     public DbSet<Product> Products {get; set;} = null!;
 
     protected override void OnModelCreating(ModelBuilder builder)

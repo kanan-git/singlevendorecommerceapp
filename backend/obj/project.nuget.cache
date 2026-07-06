@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "ho/aErHD5rE=",
+  "dgSpecHash": "Gfrjm6SVzVk=",
   "success": true,
   "projectFilePath": "C:\\Users\\kanan\\OneDrive\\Desktop\\Full Stack Projects\\ecommerce\\backend\\backend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kanan\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\kanan\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
+    "C:\\Users\\kanan\\.nuget\\packages\\bouncycastle.cryptography\\2.6.2\\bouncycastle.cryptography.2.6.2.nupkg.sha512",
     "C:\\Users\\kanan\\.nuget\\packages\\dapper\\2.1.79\\dapper.2.1.79.nupkg.sha512",
     "C:\\Users\\kanan\\.nuget\\packages\\fluentmigrator\\8.0.1\\fluentmigrator.8.0.1.nupkg.sha512",
     "C:\\Users\\kanan\\.nuget\\packages\\fluentmigrator.abstractions\\8.0.1\\fluentmigrator.abstractions.8.0.1.nupkg.sha512",
@@ -17,6 +18,7 @@
     "C:\\Users\\kanan\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.1\\fluentvalidation.aspnetcore.11.3.1.nupkg.sha512",
     "C:\\Users\\kanan\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.11.0\\fluentvalidation.dependencyinjectionextensions.11.11.0.nupkg.sha512",
     "C:\\Users\\kanan\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\kanan\\.nuget\\packages\\mailkit\\4.17.0\\mailkit.4.17.0.nupkg.sha512",
     "C:\\Users\\kanan\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\10.0.9\\microsoft.aspnetcore.authentication.jwtbearer.10.0.9.nupkg.sha512",
     "C:\\Users\\kanan\\.nuget\\packages\\microsoft.aspnetcore.identity\\2.3.11\\microsoft.aspnetcore.identity.2.3.11.nupkg.sha512",
     "C:\\Users\\kanan\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\10.0.9\\microsoft.aspnetcore.identity.entityframeworkcore.10.0.9.nupkg.sha512",
@@ -51,8 +53,10 @@
     "C:\\Users\\kanan\\.nuget\\packages\\microsoft.openapi\\2.4.1\\microsoft.openapi.2.4.1.nupkg.sha512",
     "C:\\Users\\kanan\\.nuget\\packages\\microsoft.sqlserver.server\\1.0.0\\microsoft.sqlserver.server.1.0.0.nupkg.sha512",
     "C:\\Users\\kanan\\.nuget\\packages\\microsoft.visualstudio.solutionpersistence\\1.0.52\\microsoft.visualstudio.solutionpersistence.1.0.52.nupkg.sha512",
+    "C:\\Users\\kanan\\.nuget\\packages\\mimekit\\4.17.0\\mimekit.4.17.0.nupkg.sha512",
     "C:\\Users\\kanan\\.nuget\\packages\\mono.texttemplating\\3.0.0\\mono.texttemplating.3.0.0.nupkg.sha512",
     "C:\\Users\\kanan\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\kanan\\.nuget\\packages\\stripe.net\\52.1.0\\stripe.net.52.1.0.nupkg.sha512",
     "C:\\Users\\kanan\\.nuget\\packages\\swashbuckle.aspnetcore\\10.1.7\\swashbuckle.aspnetcore.10.1.7.nupkg.sha512",
     "C:\\Users\\kanan\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\10.1.7\\swashbuckle.aspnetcore.swagger.10.1.7.nupkg.sha512",
     "C:\\Users\\kanan\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\10.1.7\\swashbuckle.aspnetcore.swaggergen.10.1.7.nupkg.sha512",
@@ -67,9 +71,10 @@
     "C:\\Users\\kanan\\.nuget\\packages\\system.composition.typedparts\\9.0.0\\system.composition.typedparts.9.0.0.nupkg.sha512",
     "C:\\Users\\kanan\\.nuget\\packages\\system.configuration.configurationmanager\\9.0.13\\system.configuration.configurationmanager.9.0.13.nupkg.sha512",
     "C:\\Users\\kanan\\.nuget\\packages\\system.identitymodel.tokens.jwt\\8.16.0\\system.identitymodel.tokens.jwt.8.16.0.nupkg.sha512",
-    "C:\\Users\\kanan\\.nuget\\packages\\system.security.cryptography.pkcs\\9.0.13\\system.security.cryptography.pkcs.9.0.13.nupkg.sha512",
+    "C:\\Users\\kanan\\.nuget\\packages\\system.security.cryptography.pkcs\\10.0.0\\system.security.cryptography.pkcs.10.0.0.nupkg.sha512",
     "C:\\Users\\kanan\\.nuget\\packages\\system.security.cryptography.protecteddata\\9.0.13\\system.security.cryptography.protecteddata.9.0.13.nupkg.sha512",
-    "C:\\Users\\kanan\\.nuget\\packages\\system.valuetuple\\4.6.1\\system.valuetuple.4.6.1.nupkg.sha512"
+    "C:\\Users\\kanan\\.nuget\\packages\\system.valuetuple\\4.6.1\\system.valuetuple.4.6.1.nupkg.sha512",
+    "C:\\Users\\kanan\\.nuget\\packages\\twilio\\7.14.9\\twilio.7.14.9.nupkg.sha512"
   ],
   "logs": [
     {
@@ -92,6 +97,18 @@
       "warningLevel": 1,
       "filePath": "C:\\Users\\kanan\\OneDrive\\Desktop\\Full Stack Projects\\ecommerce\\backend\\backend.csproj",
       "libraryId": "AutoMapper",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    },
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "message": "Package 'Microsoft.OpenApi' 2.4.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-v5pm-xwqc-g5wc",
+      "projectPath": "C:\\Users\\kanan\\OneDrive\\Desktop\\Full Stack Projects\\ecommerce\\backend\\backend.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\kanan\\OneDrive\\Desktop\\Full Stack Projects\\ecommerce\\backend\\backend.csproj",
+      "libraryId": "Microsoft.OpenApi",
       "targetGraphs": [
         "net10.0"
       ]
