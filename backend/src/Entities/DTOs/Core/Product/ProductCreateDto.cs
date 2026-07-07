@@ -10,7 +10,7 @@ public class ProductCreateDto
     public decimal DiscountedPrice => Discount != 0 ? Price - (Price * Discount / 100) : Price;
     public long RatingReviewCount {get; set;} = 0;
     public long RatingPointSum {get; set;} = 0;
-    public double Rating => RatingReviewCount != 0 ? (double)RatingPointSum / RatingReviewCount : 0;
+    public double Rating => RatingReviewCount != 0 ? Math.Round((double)RatingPointSum/RatingReviewCount*10)/10 : 0;
     public string? Color {get; set;}
     public Guid? BrandId {get; set;}
     public Guid? CategoryId {get; set;}

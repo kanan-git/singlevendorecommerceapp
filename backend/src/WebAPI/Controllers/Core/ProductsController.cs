@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Business.Services.Abstract;
 using Entities.DTOs.Product;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebAPI.Controllers;
 
@@ -51,6 +52,7 @@ public class ProductsController : ControllerBase
     }
 
     [HttpPost]
+    [Authorize(Roles="Admin, User")]
     public async Task<IActionResult> CreateProduct(ProductCreateDto productDto)
     {
         var result = await _productService.AddNewProductAsync(productDto);

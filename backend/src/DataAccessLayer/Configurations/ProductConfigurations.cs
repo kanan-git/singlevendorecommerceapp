@@ -43,8 +43,8 @@ public class ProductConfigurations : IEntityTypeConfiguration<Product>
         #endregion
 
         #region relational
-        // builder.HasOne(p => p.Brand).WithOne(b => b.).HasForeignKey(p => p.).OnDelete();
-        // builder.HasOne(p => p.Category).WithOne(ctg => ctg.).HasForeignKey(p => p.).OnDelete();
+        builder.HasOne(p => p.Brand).WithMany(b => b.Products).HasForeignKey(p => p.BrandId).OnDelete(DeleteBehavior.Cascade);
+        builder.HasOne(p => p.Category).WithMany(ctg => ctg.Products).HasForeignKey(p => p.CategoryId).OnDelete(DeleteBehavior.NoAction);
         // builder.HasOne(p => p.ImgPath).WithMany(mf => mf.).HasForeignKey(p => p.).OnDelete();
         // builder.HasOne(p => p.Comments).WithMany(cm => cm.).HasForeignKey(p => p.).OnDelete();
         #endregion

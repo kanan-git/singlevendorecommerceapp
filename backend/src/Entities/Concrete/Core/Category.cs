@@ -9,5 +9,6 @@ public class Category : BaseEntity
     #endregion
 
     #region relational
+    public ICollection<Product> Products {get; set;} = new List<Product>(0);
     #endregion
 }

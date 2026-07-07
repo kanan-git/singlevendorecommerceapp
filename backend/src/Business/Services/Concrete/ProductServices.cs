@@ -4,6 +4,7 @@ using Core.Utilities.Constants;
 using Core.Utilities.Result.Abstract;
 using Core.Utilities.Result.Concrete;
 using DataAccessLayer.UnitofWork.Abstract;
+using DataAccessLayer.ContextDB.EFCore;
 
 // using DataAccessLayer.Repositories.Abstract;
 using Entities.Concrete.Core;
@@ -30,7 +31,8 @@ public class ProductServices : IProductServices
     public async Task<IDataResult<List<ProductResponseDto>>> GetAllProductsAsync()
     {
         // var products = await _productRepo.GetAllAsync();
-        var products = await _unitOfWork.ProductRepository.GetAllAsync();
+        // var products = await _unitOfWork.ProductRepository.GetAllAsync();
+        var products = await _unitOfWork.ProductRepository.GetAllAsync(filter:null, "Brand","Category");
         var data = _mapper.Map<List<ProductResponseDto>>(products);
         if(data.Count == 0)
         {
