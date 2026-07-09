@@ -2,7 +2,6 @@ using Business;
 using WebAPI;
 using DataAccessLayer;
 using Core.Utilities.Constants;
-using Microsoft.AspNetCore.SignalR;
 
 
 var uploadPath = StaticDirectories.FilesRootDir;
@@ -22,7 +21,6 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
-    // app.MapOpenApi();
 }
 app.UseRouting();
 app.UseCors("AllowAllOrigins");

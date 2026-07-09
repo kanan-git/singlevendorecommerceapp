@@ -11,5 +11,4 @@ public interface IProductServices
     public Task<Core.Utilities.Result.Abstract.IResult> AddNewProductAsync(ProductCreateDto createDto);
     public Task<Core.Utilities.Result.Abstract.IResult> UpdateProduct(Guid id, ProductUpdateDto updateDto);
     public Task<Core.Utilities.Result.Abstract.IResult> DeleteProduct(Guid id);
-    // public Task<IDataResult<List<ProductResponseDto>>> GetAllProductsPaginatedFullAsync(); // bring data with joined rows, instead EntityId, ex: Entity.Name ...
 }

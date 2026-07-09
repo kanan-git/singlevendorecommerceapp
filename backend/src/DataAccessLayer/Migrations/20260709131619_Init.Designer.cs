@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace backend.src.DataAccessLayer.Migrations
 {
     [DbContext(typeof(ECommerceDbContext))]
-    [Migration("20260705080445_NewEntitiesIncomplete")]
-    partial class NewEntitiesIncomplete
+    [Migration("20260709131619_Init")]
+    partial class Init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -106,6 +106,46 @@ namespace backend.src.DataAccessLayer.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("Entities.Concrete.Core.Address", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("AddressLine")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Country")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDefaultBilling")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDefaultShipping")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("PostalCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("State")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Addresses", (string)null);
+                });
+
             modelBuilder.Entity("Entities.Concrete.Core.Brand", b =>
                 {
                     b.Property<Guid>("Id")
@@ -121,7 +161,34 @@ namespace backend.src.DataAccessLayer.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Brands");
+                    b.ToTable("Brands", (string)null);
+                });
+
+            modelBuilder.Entity("Entities.Concrete.Core.CartItem", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ProductId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("CartItems", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Concrete.Core.Category", b =>
@@ -139,7 +206,7 @@ namespace backend.src.DataAccessLayer.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Concrete.Core.Comment", b =>
@@ -161,7 +228,72 @@ namespace backend.src.DataAccessLayer.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("Comments");
+                    b.ToTable("Comments", (string)null);
+                });
+
+            modelBuilder.Entity("Entities.Concrete.Core.Coupon", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("CurrentUsage")
+                        .HasColumnType("int");
+
+                    b.Property<int>("DiscountValue")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("ExpiryDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("MaxUsage")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Coupons", (string)null);
+                });
+
+            modelBuilder.Entity("Entities.Concrete.Core.Language", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("CountryIsoCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CountryName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CountryNameOriginal")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NameOriginal")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Languages", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Concrete.Core.MediaFile", b =>
@@ -198,7 +330,66 @@ namespace backend.src.DataAccessLayer.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("MediaFiles");
+                    b.ToTable("MediaFiles", (string)null);
+                });
+
+            modelBuilder.Entity("Entities.Concrete.Core.Order", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<decimal>("PriceAtPurchase")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<Guid>("ProductId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("Orders", (string)null);
+                });
+
+            modelBuilder.Entity("Entities.Concrete.Core.PaymentDetail", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<decimal>("Amount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<Guid>("OrderId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Provider")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TransactionId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OrderId");
+
+                    b.ToTable("PaymentDetails", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Concrete.Core.Product", b =>
@@ -212,6 +403,9 @@ namespace backend.src.DataAccessLayer.Migrations
 
                     b.Property<Guid?>("CategoryId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Color")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
                         .HasMaxLength(255)
@@ -267,6 +461,64 @@ namespace backend.src.DataAccessLayer.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Products", (string)null);
+                });
+
+            modelBuilder.Entity("Entities.Concrete.Core.ShippingDetail", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Carrier")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("EstimatedDelivery")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("OrderId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TrackingNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OrderId");
+
+                    b.ToTable("ShippingDetails", (string)null);
+                });
+
+            modelBuilder.Entity("Entities.Concrete.Core.Wishlist", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ProductId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Wishlists", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole<System.Guid>", b =>
@@ -400,6 +652,25 @@ namespace backend.src.DataAccessLayer.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("Entities.Concrete.Core.CartItem", b =>
+                {
+                    b.HasOne("Entities.Concrete.Core.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Entities.Concrete.Auth.AppUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Entities.Concrete.Core.Comment", b =>
                 {
                     b.HasOne("Entities.Concrete.Core.Product", null)
@@ -414,19 +685,73 @@ namespace backend.src.DataAccessLayer.Migrations
                         .HasForeignKey("ProductId");
                 });
 
+            modelBuilder.Entity("Entities.Concrete.Core.Order", b =>
+                {
+                    b.HasOne("Entities.Concrete.Core.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("Entities.Concrete.Core.PaymentDetail", b =>
+                {
+                    b.HasOne("Entities.Concrete.Core.Order", "Order")
+                        .WithMany()
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Order");
+                });
+
             modelBuilder.Entity("Entities.Concrete.Core.Product", b =>
                 {
                     b.HasOne("Entities.Concrete.Core.Brand", "Brand")
-                        .WithMany()
-                        .HasForeignKey("BrandId");
+                        .WithMany("Products")
+                        .HasForeignKey("BrandId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("Entities.Concrete.Core.Category", "Category")
-                        .WithMany()
-                        .HasForeignKey("CategoryId");
+                        .WithMany("Products")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.Navigation("Brand");
 
                     b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("Entities.Concrete.Core.ShippingDetail", b =>
+                {
+                    b.HasOne("Entities.Concrete.Core.Order", "Order")
+                        .WithMany()
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Order");
+                });
+
+            modelBuilder.Entity("Entities.Concrete.Core.Wishlist", b =>
+                {
+                    b.HasOne("Entities.Concrete.Core.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Entities.Concrete.Auth.AppUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
@@ -478,6 +803,16 @@ namespace backend.src.DataAccessLayer.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Entities.Concrete.Core.Brand", b =>
+                {
+                    b.Navigation("Products");
+                });
+
+            modelBuilder.Entity("Entities.Concrete.Core.Category", b =>
+                {
+                    b.Navigation("Products");
                 });
 
             modelBuilder.Entity("Entities.Concrete.Core.Product", b =>

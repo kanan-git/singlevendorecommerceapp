@@ -35,15 +35,6 @@ public static class ConfigurationServices
         services.AddIdentity<AppUser, IdentityRole<Guid>>()
             .AddEntityFrameworkStores<ECommerceDbContext>()
             .AddDefaultTokenProviders();
-        // services.AddIdentityCore<AppUser>(opt =>
-        //     {
-        //         opt.Password.RequireDigit = false;
-        //         opt.Password.RequiredLength = 8;
-        //         opt.Password.RequireNonAlphanumeric = false;
-        //         opt.Password.RequireUppercase = false;
-        //     })
-        //     .AddRoles<IdentityRole<Guid>>()
-        //     .AddEntityFrameworkStores<ECommerceDbContext>();
 
         services.AddAuthentication(options =>
         {

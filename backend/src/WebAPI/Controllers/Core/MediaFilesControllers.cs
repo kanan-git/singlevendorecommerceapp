@@ -2,6 +2,7 @@ using System;
 using System.Text;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
+using Business.Services.Abstract;
 
 namespace WebAPI.Controllers;
 
@@ -10,8 +11,11 @@ namespace WebAPI.Controllers;
 
 public class MediaFilesController : ControllerBase
 {
-    public MediaFilesController()
-    {}
+    private readonly IMediaFileServices _mediaFileServices;
+    public MediaFilesController(IMediaFileServices mediaFileServices)
+    {
+        _mediaFileServices = mediaFileServices;
+    }
 
     [HttpPost]
     public async Task<IActionResult> Upload()
