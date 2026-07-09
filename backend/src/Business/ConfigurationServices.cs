@@ -10,6 +10,8 @@ public static class ConfigurationServices
 {
     public static IServiceCollection AddBusinessConfig(this IServiceCollection services)
     {
+        services.AddMemoryCache();
+
         services.AddFluentValidationAutoValidation().AddFluentValidationClientsideAdapters();
         services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
 
